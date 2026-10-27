@@ -1,0 +1,59 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "amanah/location",
+	"title": "Location map",
+	"category": "amanah",
+	"description": "Aerial map with clickable pins that zoom and spotlight each place, plus the matching location cards. Places are a list edited in the code editor (x/y = pin position in % of the image).",
+	"attributes": {
+		"anchor": { "type": "string", "default": "location" },
+		"heading": { "type": "string", "default": "One block of Front Street West." },
+		"intro": { "type": "string", "default": "Our data centre and our head office stand side by side in downtown Toronto. The team that runs your racks works next door." },
+		"image": { "type": "string", "default": "aerial2.avif" },
+		"imageAlt": { "type": "string", "default": "Aerial view of downtown Toronto showing 151 Front Street West, a brown brick building, beside the Citibank Place towers at 123 Front Street West, with the rail corridor in front." },
+		"landmark": {
+			"type": "object",
+			"default": { "label": "Union Station", "x": 40, "y": 80 }
+		},
+		"captionStart": { "type": "string", "default": "Front Street West" },
+		"captionEnd": { "type": "string", "default": "Downtown Toronto" },
+		"places": {
+			"type": "array",
+			"default": [
+				{
+					"title": "151 Front Street West",
+					"kind": "Data centre",
+					"icon": "server",
+					"text": "Your racks, the meet-me room and 400+ networks under one roof.",
+					"tip": "151 Front · Data centre",
+					"label": "151 Front Street West, the data centre",
+					"x": 37,
+					"y": 38,
+					"fx": 37,
+					"fy": 40,
+					"zoom": 1.12,
+					"r": 22,
+					"color": "red"
+				},
+				{
+					"title": "123 Front Street West",
+					"kind": "Head office",
+					"icon": "office",
+					"text": "Sales, support and engineering, a short walk from your cabinet.",
+					"tip": "123 Front · Head office",
+					"label": "123 Front Street West, head office",
+					"x": 73,
+					"y": 27,
+					"fx": 73,
+					"fy": 36,
+					"zoom": 1.12,
+					"r": 20,
+					"color": "lake"
+				}
+			]
+		}
+	},
+	"supports": { "html": false, "anchor": true },
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

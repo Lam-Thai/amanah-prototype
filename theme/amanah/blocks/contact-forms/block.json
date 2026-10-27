@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "amanah/contact-forms",
+	"title": "Contact forms",
+	"category": "amanah",
+	"description": "Three tabs: quote form, tour form and the support panel for existing customers. #quote, #tour and #support in the URL open the matching tab; ?plan=<id>&qty=<n> pre-fills the quote. Prototype: nothing is sent, the visitor sees a confirmation.",
+	"attributes": {
+		"tabsLabel": { "type": "string", "default": "How can we help" },
+		"quoteTab": { "type": "string", "default": "Get a quote" },
+		"quoteTabNote": { "type": "string", "default": "Written in 1 business day" },
+		"tourTab": { "type": "string", "default": "Book a tour" },
+		"tourTabNote": { "type": "string", "default": "Walk TOR1 and TOR2" },
+		"supportTab": { "type": "string", "default": "Support" },
+		"supportTabNote": { "type": "string", "default": "Customers, 24/7" },
+		"quoteTitle": { "type": "string", "default": "Tell us what you need to rack." },
+		"quoteIntro": { "type": "string", "default": "A few details are enough. You get a written quote, priced to your power and network, within one business day." },
+		"quoteButton": { "type": "string", "default": "Send quote request" },
+		"tourTitle": { "type": "string", "default": "See the floor before you sign." },
+		"tourIntro": { "type": "string", "default": "Walk TOR1 and TOR2, see the racks you would use, and ask the people who run them." },
+		"tourDaysHint": { "type": "string", "default": "<mark class=\"verify\">Tours run Monday to Friday.</mark>" },
+		"tourIdNote": { "type": "string", "default": "<b>Bring photo ID.</b> <mark class=\"verify\">Everyone on the tour shows government-issued photo ID at the front desk of 151 Front Street West.</mark>" },
+		"tourButton": { "type": "string", "default": "Request a tour" },
+		"supportTitle": { "type": "string", "default": "Already a customer? We are here 24/7." },
+		"supportIntro": { "type": "string", "default": "Staff are on site at 151 Front around the clock. Call the line below any time, day or night." },
+		"phone": { "type": "string", "default": "+1 416 603 9825" },
+		"supportEmail": { "type": "string", "default": "support@amanah.com" },
+		"verifyEmail": { "type": "boolean", "default": true },
+		"portalNote": { "type": "string", "default": "<mark class=\"verify\">Open tickets, book remote hands and follow your cross connects. Your sign-in arrives with your welcome email.</mark>" },
+		"readyItems": {
+			"type": "array",
+			"default": [
+				"Your company name and the name on the account",
+				"The cabinet or rack, and the label on the device",
+				"What you saw, and when it started",
+				"Whether you want remote hands, from $100 CAD an hour"
+			]
+		},
+		"protoNote": { "type": "string", "default": "Prototype: this form doesn't send anything yet." },
+		"colocationUrl": { "type": "string", "default": "/colocation/" },
+		"gpuUrl": { "type": "string", "default": "/high-density/" }
+	},
+	"supports": { "html": false, "anchor": true },
+	"render": "file:./render.php",
+	"style": "file:./style.css",
+	"viewScript": "file:./view.js"
+}

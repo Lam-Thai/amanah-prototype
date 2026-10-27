@@ -1,0 +1,10 @@
+/* Services page (/services/). Section styles live with their blocks (blocks/services-*); this file only tunes shared blocks for this page. */
+
+/* Jump targets: land a little below the fixed header when it is showing. */
+.sf[id], .sx[id] { scroll-margin-top: 24px; }
+
+/* Two quotes in the rail: on desktop show them side by side instead of a carousel. */
+@media (min-width: 900px) {
+	.wp-block-amanah-quotes .qrail__list:not(:has(> li:nth-child(3))) { grid-auto-flow: row; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; }
+	.wp-block-amanah-quotes .qrail:not(:has(.qrail__list > li:nth-child(3))) .qrail__nav { display: none; }
+}

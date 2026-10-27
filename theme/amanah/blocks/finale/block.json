@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "amanah/finale",
+	"title": "Closing call to action",
+	"category": "amanah",
+	"description": "Dark closing band for the end of a page: big headline, short text, quote and tour buttons, price-match note (leave empty to hide) and an aerial photo with a location pin. Image takes a file name from the theme's assets/images folder or a full URL.",
+	"attributes": {
+		"title": { "type": "string", "default": "Your rack, quoted in a day." },
+		"text": { "type": "string", "default": "Book a tour of 151 Front Street West, or send us your rack count and power draw for a written quote within one business day." },
+		"primaryLabel": { "type": "string", "default": "Get a quote" },
+		"primaryUrl": { "type": "string", "default": "/contact/#quote" },
+		"secondaryLabel": { "type": "string", "default": "Book a tour" },
+		"secondaryUrl": { "type": "string", "default": "/contact/#tour" },
+		"priceMatch": { "type": "string", "default": "<b>Price match guarantee.</b> Bring a comparable colocation quote for 151 Front and we will beat it by 10%." },
+		"pinLabel": { "type": "string", "default": "151 Front St W" },
+		"image": { "type": "string", "default": "aerial2.avif" }
+	},
+	"supports": { "html": false, "anchor": true },
+	"render": "file:./render.php"
+}

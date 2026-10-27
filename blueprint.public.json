@@ -1,0 +1,24 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"meta": {
+		"title": "Amanah prototype",
+		"author": "Lam Thai",
+		"description": "A live WordPress in your browser with the Amanah theme and demo content. Changes are private to your browser tab and reset when it closes."
+	},
+	"landingPage": "/",
+	"login": true,
+	"preferredVersions": { "php": "8.3", "wp": "latest" },
+	"steps": [
+		{
+			"step": "installTheme",
+			"themeData": {
+				"resource": "git:directory",
+				"url": "https://github.com/Lam-Thai/amanah-prototype",
+				"ref": "main",
+				"path": "theme/amanah"
+			},
+			"options": { "activate": true }
+		},
+		{ "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; amanah_seed_run();" }
+	]
+}

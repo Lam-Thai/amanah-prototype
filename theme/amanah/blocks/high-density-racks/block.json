@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "amanah/high-density-racks",
+	"title": "Rack density comparison",
+	"category": "amanah",
+	"description": "Paper section that places the same GPU cluster in racks of different power budgets and draws the cabinets it needs. Racks per row are calculated from the server draw, server count and each row's kW. Rows are a list edited in the code editor.",
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "Rack density" },
+		"heading": { "type": "string", "default": "Power, not space, decides how many racks you rent." },
+		"intro": { "type": "string", "default": "A 42U cabinet has room for plenty of GPU servers. What runs out first is power. Here is the same cluster placed in a TOR2 cabinet and in a typical colocation rack." },
+		"serverKw": { "type": "number", "default": 3 },
+		"servers": { "type": "number", "default": 16 },
+		"slots": { "type": "number", "default": 10 },
+		"serverLabel": { "type": "string", "default": "One 4-GPU server, about 3 kW" },
+		"emptyLabel": { "type": "string", "default": "Space you pay for but cannot power" },
+		"rows": {
+			"type": "array",
+			"default": [
+				{ "label": "TOR2 high-density rack", "kw": 25, "note": "208 V three-phase, N+1 UPS and generator", "tone": "red" },
+				{ "label": "Typical colocation rack", "kw": 6, "note": "A common 5 to 8 kW power budget", "tone": "muted" }
+			]
+		},
+		"ratioText": { "type": "string", "default": "fewer racks for the same cluster, with nodes close enough for short, direct cabling." },
+		"footnote": { "type": "string", "default": "Illustrative. Real counts depend on your server model, A+B power feeds and the headroom you keep. We size it with you on the first call." }
+	},
+	"supports": { "html": false, "anchor": true },
+	"render": "file:./render.php",
+	"style": "file:./style.css"
+}

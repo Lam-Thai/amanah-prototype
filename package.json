@@ -1,0 +1,18 @@
+{
+  "name": "amanah-wp-prototype",
+  "private": true,
+  "type": "module",
+  "description": "Amanah website prototype: a WordPress block theme, run locally with WordPress Playground and exported to a static site.",
+  "scripts": {
+    "dev": "wp-playground-cli server --port=9400 --mount-dir ./theme/amanah /wordpress/wp-content/themes/amanah --blueprint=./blueprint.json --login",
+    "export": "node scripts/export.mjs",
+    "preview": "node scripts/preview.mjs",
+    "deploy": "node scripts/deploy.mjs"
+  },
+  "devDependencies": {
+    "@wp-playground/cli": "^3.1.61"
+  },
+  "config": {
+    "pagesBase": "/amanah-prototype"
+  }
+}

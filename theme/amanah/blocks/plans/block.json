@@ -1,0 +1,91 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "amanah/plans",
+	"title": "Plan picker",
+	"category": "amanah",
+	"description": "Interactive colocation plan picker: tabs, a 3D (or 2D) rack diagram, price, quantity stepper and quote button. The five plans are data in the block's code editor (attribute \"plans\"). Leave the price-match text empty to hide that box.",
+	"attributes": {
+		"heading": { "type": "string", "default": "Pick the footprint that fits today." },
+		"intro": { "type": "string", "default": "Every plan sits on the same power, cooling, security and network. Move up a size in the same building when you outgrow it. Published starting prices, per month in Canadian dollars." },
+		"priceMatch": { "type": "string", "default": "<b>Price match.</b> Bring a comparable colocation quote for 151 Front and we will beat it by 10%." },
+		"note": { "type": "string", "default": "Power, bandwidth and cross connects are quoted to your load." },
+		"ctaLabel": { "type": "string", "default": "Get a quote" },
+		"compareLabel": { "type": "string", "default": "Compare all plans" },
+		"compareUrl": { "type": "string", "default": "/colocation/" },
+		"contactUrl": { "type": "string", "default": "/contact/" },
+		"plans": {
+			"type": "array",
+			"default": [
+				{
+					"id": "shared",
+					"tab": "Shared rack",
+					"from": "From $149 / U",
+					"name": "Per U colocation",
+					"badge": "Shared rack, 42 U",
+					"who": "Your servers in a secure shared cabinet, priced by the rack unit. Right for one to a few servers.",
+					"pricing": { "mode": "perUnit", "amount": 149 },
+					"step": { "min": 1, "max": 8, "start": 1, "label": "Rack units", "unitWord": "U", "one": "rack unit" },
+					"list": [ "Locked shared cabinet with blanking panels", "Power and bandwidth quoted to your load", "24/7 unescorted access to the floor" ]
+				},
+				{
+					"id": "quarter",
+					"tab": "Quarter rack",
+					"from": "From $749",
+					"name": "Quarter rack",
+					"badge": "Quarter rack, 10 U",
+					"comps": 4,
+					"open": 2,
+					"word": "quarter",
+					"size": "10 U",
+					"who": "Your own lockable section of a cabinet, with room for a small stack and its network gear.",
+					"pricing": { "mode": "fixed", "amount": 749 },
+					"list": [ "Separately keyed compartment", "Cross connects in 1 to 2 business days", "Upgrade to a larger footprint in the same building" ]
+				},
+				{
+					"id": "half",
+					"tab": "Half rack",
+					"from": "Quoted",
+					"name": "Half rack",
+					"badge": "Half rack, 21 U",
+					"comps": 2,
+					"open": 0,
+					"word": "half",
+					"size": "21 U",
+					"who": "Half a cabinet behind its own locked door. Room for a growing stack, with space to add more.",
+					"pricing": { "mode": "quoted", "unit": "to your power and footprint" },
+					"list": [ "Separately keyed 21 U compartment", "Power and bandwidth quoted to your load", "Move up to a full rack without leaving the building" ]
+				},
+				{
+					"id": "full",
+					"tab": "Full rack",
+					"from": "From $1,999",
+					"name": "Full rack",
+					"badge": "Full rack, 42 U",
+					"comps": 1,
+					"open": 0,
+					"word": "rack",
+					"size": "42 U",
+					"who": "A dedicated, locked cabinet for a full stack. Available in TOR1 and TOR2.",
+					"pricing": { "mode": "fixed", "amount": 1999 },
+					"list": [ "Dedicated 42 U cabinet", "Up to 25 kW per rack in TOR2", "Cross connects with no cap per customer" ]
+				},
+				{
+					"id": "suite",
+					"tab": "Private suite",
+					"from": "Quoted",
+					"name": "Private cage and suite",
+					"badge": "Private suite",
+					"suite": true,
+					"who": "Several racks inside your own caged space, with access limited to your team.",
+					"pricing": { "mode": "quoted", "unit": "to your footprint and power" },
+					"step": { "min": 2, "max": 12, "start": 6, "label": "Racks", "unitWord": "racks", "one": "rack" },
+					"list": [ "Dedicated cage with its own access control", "Built around your power and cooling plan", "Room to add racks as you grow" ]
+				}
+			]
+		}
+	},
+	"supports": { "html": false, "anchor": true },
+	"render": "file:./render.php",
+	"viewScript": [ "amanah-rack3d", "file:./view.js" ]
+}

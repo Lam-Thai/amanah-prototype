@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "amanah/hero-video",
+	"title": "Hero video",
+	"category": "amanah",
+	"description": "Home page opening: full-screen footage that plays as the visitor scrolls, with three headline beats (wrap words in <em> for red). Beat 1 is the page heading. Images and videos take a full URL or a file name from the theme's assets/images folder.",
+	"attributes": {
+		"eyebrow1": { "type": "string", "default": "Colocation · 151 Front Street West" },
+		"title1": { "type": "string", "default": "Toronto colocation, built to <em>stay on.</em>" },
+		"eyebrow2": { "type": "string", "default": "Contained cold aisles, N+1 power" },
+		"title2": { "type": "string", "default": "Your servers, <em>always running.</em>" },
+		"eyebrow3": { "type": "string", "default": "Colocation plans for every size" },
+		"title3": { "type": "string", "default": "From one U to a <em>private suite.</em>" },
+		"primaryLabel": { "type": "string", "default": "See colocation plans" },
+		"primaryUrl": { "type": "string", "default": "#plans" },
+		"secondaryLabel": { "type": "string", "default": "Book a tour" },
+		"secondaryUrl": { "type": "string", "default": "/contact/#tour" },
+		"posterDesktop": { "type": "string", "default": "https://d2ol7oe51mr4n9.cloudfront.net/user_3GBiSdo0OPtHmaFPlRg92PyF5RO/c95ff40d-1a16-4179-8f35-6b6f5dbed6b6.jpg" },
+		"posterMobile": { "type": "string", "default": "https://d8j0ntlcm91z4.cloudfront.net/user_3GBiSdo0OPtHmaFPlRg92PyF5RO/hf_20261001_130636_8294fe7e-05fa-489b-b29e-8eb46fc94589.png" },
+		"posterAlt": { "type": "string", "default": "A contained cold aisle inside the data hall at 151 Front Street West, Toronto." },
+		"videoDesktop": { "type": "string", "default": "https://d2ol7oe51mr4n9.cloudfront.net/user_3GBiSdo0OPtHmaFPlRg92PyF5RO/9fa4fbbd-6100-41bd-866e-325861cf2602.mp4" },
+		"videoMobile": { "type": "string", "default": "https://d8j0ntlcm91z4.cloudfront.net/user_3GBiSdo0OPtHmaFPlRg92PyF5RO/hf_20261001_130756_6323dbd1-3660-4f85-b589-7f3210390c78.mp4" },
+		"cue": { "type": "string", "default": "Scroll to explore" },
+		"note": { "type": "string", "default": "Illustrative footage" }
+	},
+	"supports": { "html": false, "anchor": true },
+	"render": "file:./render.php",
+	"style": "file:./style.css",
+	"viewScript": "file:./view.js"
+}

@@ -1,0 +1,53 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "amanah/service-cards",
+	"title": "Service cards",
+	"category": "amanah",
+	"description": "Eyebrow, heading and linked service cards (image or text stack, title, text, price line). Cards are a list edited in the code editor.",
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "Also at 151 Front" },
+		"heading": { "type": "string", "default": "Add to your colocation." },
+		"items": {
+			"type": "array",
+			"default": [
+				{
+					"type": "image",
+					"title": "Dedicated servers",
+					"text": "Lease Dell PowerEdge servers month to month, racked next to your own gear.",
+					"price": "From $49 CAD / month",
+					"url": "/services/#dedicated-servers",
+					"image": "servers.avif",
+					"alt": "The fronts of rack servers with hot-swap drive bays and blue activity lights.",
+					"width": 1800,
+					"height": 1195
+				},
+				{
+					"type": "image",
+					"title": "Cloud Connect",
+					"text": "Private links from your rack to AWS, Azure, Google Cloud and Cloudflare, 100 Mbps to 10 Gbps.",
+					"price": "From $500 CAD / month",
+					"url": "/services/#cloud-connect",
+					"image": "meet-me-room.avif",
+					"alt": "Fibre patch panels with dressed fibre cords in the meet-me room.",
+					"width": 1568,
+					"height": 1041
+				},
+				{
+					"type": "stack",
+					"title": "À La Carte",
+					"text": "Combine colocation with rented switches, firewalls and managed services, on one contract.",
+					"price": "One invoice",
+					"url": "/services/#a-la-carte",
+					"stack": [
+						{ "k": "Space", "v": "your rack" },
+						{ "k": "Rent", "v": "our hardware" },
+						{ "k": "Manage", "v": "our team" }
+					]
+				}
+			]
+		}
+	},
+	"supports": { "html": false, "anchor": true },
+	"render": "file:./render.php"
+}

@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "amanah/services-feature",
+	"title": "Service feature",
+	"category": "amanah",
+	"description": "One service as a full section: eyebrow, headline (wrap words in <em> for red), text, price, bullet list and buttons beside a visual. The visual is a photo (with an optional chip), or, with no photo, a stack of rows adding up to a total; either can carry a live line graphic (net = fibre with packets, conv = carriers converging on your rack) above a grid of networks. Turn on Paper for the light surface and Flip to put the visual on the left. Bullets, stack and networks are lists edited in the code editor.",
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "01 · Dedicated servers" },
+		"title": { "type": "string", "default": "Lease servers that sit <em>beside yours.</em>" },
+		"text": { "type": "string", "default": "Rent Dell PowerEdge servers month to month, racked next to your own gear at 151 Front. Add capacity for a project without buying hardware you will outgrow." },
+		"priceLead": { "type": "string", "default": "From" },
+		"price": { "type": "string", "default": "$49" },
+		"priceUnit": { "type": "string", "default": "CAD / month" },
+		"bullets": {
+			"type": "array",
+			"default": [ "Dell PowerEdge hardware", "Month to month, no long commitment", "Racked next to your colocation" ]
+		},
+		"ctaLabel": { "type": "string", "default": "Get a server quote" },
+		"ctaUrl": { "type": "string", "default": "/contact/#quote" },
+		"secondaryLabel": { "type": "string", "default": "" },
+		"secondaryUrl": { "type": "string", "default": "" },
+		"image": { "type": "string", "default": "servers.avif" },
+		"alt": { "type": "string", "default": "The fronts of rack servers with hot-swap drive bays and blue activity lights." },
+		"chipValue": { "type": "string", "default": "Dell PowerEdge" },
+		"chipLabel": { "type": "string", "default": "month to month" },
+		"stack": { "type": "array", "default": [] },
+		"stackTotal": { "type": "object", "default": {} },
+		"line": { "type": "string", "default": "" },
+		"lineLabel": { "type": "string", "default": "Your rack" },
+		"nodesTitle": { "type": "string", "default": "" },
+		"nodes": { "type": "array", "default": [] },
+		"more": { "type": "object", "default": {} },
+		"flip": { "type": "boolean", "default": false },
+		"paper": { "type": "boolean", "default": false }
+	},
+	"supports": { "html": false, "anchor": true },
+	"render": "file:./render.php",
+	"style": "file:./style.css",
+	"viewScript": [ "amanah-lines" ]
+}

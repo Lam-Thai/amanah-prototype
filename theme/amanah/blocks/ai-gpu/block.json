@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "amanah/ai-gpu",
+	"title": "AI and GPU section",
+	"category": "amanah",
+	"description": "Dark AI/GPU section: badge, headline (wrap words in <span class=\"ai-grad\"> for the gradient), text, two buttons, framed image with a stat chip, spec rows with live line graphics and a closing call to action. Specs are a list edited in the code editor.",
+	"attributes": {
+		"anchor": { "type": "string", "default": "ai" },
+		"badge": { "type": "string", "default": "AI and GPU colocation, TOR2" },
+		"title": { "type": "string", "default": "Rack your GPUs at <span class=\"ai-grad\">25 kW</span> a cabinet." },
+		"text": { "type": "string", "default": "TOR2 is built for AI training, inference and HPC. Three-phase power, Enwave deep lake cooling and unmetered 100 Gbps ports, so dense clusters fit in fewer racks." },
+		"primaryLabel": { "type": "string", "default": "Plan a GPU deployment" },
+		"primaryUrl": { "type": "string", "default": "/contact/?plan=gpu#quote" },
+		"secondaryLabel": { "type": "string", "default": "Explore TOR2" },
+		"secondaryUrl": { "type": "string", "default": "/high-density/" },
+		"image": { "type": "string", "default": "high-density.avif" },
+		"imageAlt": { "type": "string", "default": "A row of high-density GPU cabinets with blue and red liquid cooling lines running into overhead manifolds." },
+		"chipValue": { "type": "string", "default": "100 Gbps" },
+		"chipLabel": { "type": "string", "default": "unmetered" },
+		"specs": {
+			"type": "array",
+			"default": [
+				{
+					"num": "25",
+					"unit": "kW",
+					"title": "Power per rack",
+					"text": "Three-phase 208 V to every high-density cabinet, backed by N+1 UPS and generator failover.",
+					"line": "power"
+				},
+				{
+					"num": "100",
+					"unit": "Gbps",
+					"title": "Unmetered ports",
+					"text": "Move training data in and serve inference out without bandwidth caps or overage bills.",
+					"line": "net"
+				}
+			]
+		},
+		"endText": { "type": "string", "default": "Bring your GPUs, or have us build and rack them." },
+		"endLabel": { "type": "string", "default": "Plan a GPU deployment" },
+		"endUrl": { "type": "string", "default": "/contact/?plan=gpu#quote" }
+	},
+	"supports": { "html": false, "anchor": true },
+	"render": "file:./render.php",
+	"viewScript": [ "amanah-lines" ]
+}

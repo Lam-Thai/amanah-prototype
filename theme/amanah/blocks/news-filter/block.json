@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "amanah/news-filter",
+	"title": "News category filter",
+	"category": "amanah",
+	"description": "Row of category chips for the news pages: All, then every category that has posts, with the current one highlighted.",
+	"attributes": {
+		"allLabel": { "type": "string", "default": "All" },
+		"ariaLabel": { "type": "string", "default": "Filter articles by category" }
+	},
+	"supports": { "html": false },
+	"render": "file:./render.php"
+}

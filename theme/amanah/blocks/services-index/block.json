@@ -1,0 +1,26 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "amanah/services-index",
+	"title": "Services index",
+	"category": "amanah",
+	"description": "Light section with a heading, intro and a numbered list of services, each row linking to its section on the page (url \"#anchor\") with a one-line summary and price. Rows are a list edited in the code editor.",
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "Also at 151 Front" },
+		"heading": { "type": "string", "default": "Five ways to add to your rack." },
+		"intro": { "type": "string", "default": "Each one is delivered inside 151 Front Street West, by the team that runs your colocation. Pick one to see what it includes and what it costs." },
+		"items": {
+			"type": "array",
+			"default": [
+				{ "title": "Dedicated servers", "text": "Dell PowerEdge, month to month, racked next to your gear.", "price": "From $49 CAD / month", "url": "#dedicated-servers" },
+				{ "title": "Cloud Connect", "text": "Private links to AWS, Azure, Google Cloud and Cloudflare.", "price": "From $500 CAD / month", "url": "#cloud-connect" },
+				{ "title": "À La Carte", "text": "Colocation plus rented switches, firewalls and managed services.", "price": "One invoice", "url": "#a-la-carte" },
+				{ "title": "Cross connects", "text": "To 400+ networks and TorIX, live in 1 to 2 business days.", "price": "Quoted to your load", "url": "#cross-connects" },
+				{ "title": "Remote hands", "text": "Staff on site 24/7 to work on your gear when you can't.", "price": "From $100 CAD / hour", "url": "#remote-hands" }
+			]
+		}
+	},
+	"supports": { "html": false, "anchor": true },
+	"render": "file:./render.php",
+	"style": "file:./style.css"
+}

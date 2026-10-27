@@ -1,0 +1,13 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "amanah/news-back",
+	"title": "Back to news link",
+	"category": "amanah",
+	"description": "Small link back to the news page (the page set as the posts page under Settings > Reading).",
+	"attributes": {
+		"label": { "type": "string", "default": "Back to news" }
+	},
+	"supports": { "html": false },
+	"render": "file:./render.php"
+}

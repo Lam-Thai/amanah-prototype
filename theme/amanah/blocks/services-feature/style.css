@@ -1,0 +1,75 @@
+/* amanah/services-feature: one service, copy beside a visual. Tokens and components from site.css. */
+
+.sf__grid { display: grid; gap: 40px; align-items: center; }
+.sf__media { order: -1; min-width: 0; }
+.sf__copy { display: grid; gap: 24px; align-content: start; min-width: 0; }
+
+/* Copy */
+.sf__copy h2 { font-size: clamp(2.125rem, 1.1rem + 2.8vw, 4rem); line-height: 1; letter-spacing: -.03em; max-width: 13ch; }
+.sf__copy h2 em { font-style: normal; color: var(--red-mark); }
+.sf.paper .sf__copy h2 em { color: var(--pred); }
+.sf__text { font-size: clamp(1.0625rem, 1rem + .3vw, 1.1875rem); line-height: 1.55; color: var(--tx2); max-width: 46ch; }
+.sf.paper .sf__text { color: var(--ink2); }
+
+.sf__price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 14px; margin: 8px 0 0; padding-block: 24px; border-block: 1px solid var(--line); }
+.sf.paper .sf__price { border-color: var(--paper3); }
+.sf__price b { font: 500 clamp(2.75rem, 1.9rem + 3.2vw, 4.75rem)/.9 var(--fm); letter-spacing: -.045em; font-variant-numeric: tabular-nums; }
+.sf__price span { color: var(--tx2); }
+.sf.paper .sf__price span { color: var(--ink2); }
+.sf__price .sf__lead { width: 100%; font: 500 .75rem/1.4 var(--fm); letter-spacing: .14em; text-transform: uppercase; color: var(--tx3); }
+.sf.paper .sf__price .sf__lead { color: var(--ink3); }
+
+.sf__list { display: grid; gap: 12px; list-style: none; margin: 0; padding: 0; }
+.sf__list li { display: flex; gap: 12px; align-items: flex-start; }
+.sf__list .icon { flex: none; width: 20px; height: 20px; margin-top: 2px; color: var(--lake); }
+.sf.paper .sf__list .icon { color: var(--plake); }
+.sf__cta { display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px; }
+
+/* Visual: photo */
+.sf__frame { position: relative; margin: 0; border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 4 / 3; background: var(--bg2); }
+.sf__frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.sf__chip { position: absolute; right: 16px; bottom: 16px; display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: var(--r-md); background: rgba(18,14,12,.82); color: var(--tx); font: 500 .8125rem/1.2 var(--fm); box-shadow: 0 0 0 1px rgba(251,247,246,.12); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.sf__chip span { color: var(--tx3); }
+
+/* Visual: dark panel (stack or networks only). Stays dark on paper sections, like the sample's rack media. */
+.sf__media--panel,
+.sf__media--net { position: relative; border-radius: var(--r-lg); overflow: hidden; background: var(--bg2); border: 1px solid var(--line); color: var(--tx); isolation: isolate; }
+.sf.paper .sf__media--panel,
+.sf.paper .sf__media--net { background: var(--bg); border-color: var(--bg); }
+.sf__media--panel::before { content: ""; position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 40px 40px; opacity: .45; -webkit-mask-image: radial-gradient(ellipse at 50% 45%, #000 0%, transparent 72%); mask-image: radial-gradient(ellipse at 50% 45%, #000 0%, transparent 72%); }
+.sf__media--net .sf__frame { border-radius: 0; aspect-ratio: 16 / 10; }
+
+/* Stack: rows that add up to one total */
+.sf__stack { display: grid; justify-items: center; gap: 8px; padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 56px); }
+.sf__row { display: flex; justify-content: space-between; gap: 16px; width: min(100%, 400px); padding: 18px 20px; border-radius: var(--r-sm); border: 1px solid var(--line2); background: rgba(23,18,16,.6); font: 500 .875rem/1 var(--fm); color: var(--tx3); }
+.sf__row b { color: var(--tx); font-weight: 500; }
+.sf__row--total { border-color: var(--red); background: var(--red-veil); color: var(--tx2); }
+.sf__row--total b { color: var(--red-tx); }
+.sf__op { font: 500 .875rem/1 var(--fm); font-style: normal; color: var(--tx3); }
+
+/* Networks: line graphic + grid of carriers / on-ramps */
+.sf__net { display: grid; gap: 20px; padding: 24px; }
+.sf__media--panel .sf__net { padding: clamp(24px, 3vw, 40px); }
+.sf__k { font: 500 .75rem/1.5 var(--fm); letter-spacing: .14em; text-transform: uppercase; color: var(--tx3); }
+.sf__net .conv { margin-top: 24px; }
+.sf__net svg.sline { display: block; width: 100%; height: 112px; overflow: hidden; }
+.sf__net svg.sline path { fill: none; stroke-linecap: round; }
+.sf__net canvas.l-net { height: 72px; }
+.sf__net .carriers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sf__net .carriers li { background: var(--bg); }
+.sf.paper .sf__net .carriers li { background: var(--bg2); }
+.sf.paper .sf__net .carriers li.more { background: var(--bg3); }
+
+@media (min-width: 600px) {
+	.sf__net .carriers { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+	.sf__net .carriers:has(> li:nth-child(4):last-child) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (min-width: 900px) {
+	.sf__grid { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(48px, 6vw, 112px); }
+	.sf__media { order: 0; }
+	.sf--flip .sf__grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); }
+	.sf--flip .sf__media { order: -1; }
+	.sf__frame { aspect-ratio: 5 / 4; }
+	.sf__media--net .sf__frame { aspect-ratio: 16 / 10; }
+}

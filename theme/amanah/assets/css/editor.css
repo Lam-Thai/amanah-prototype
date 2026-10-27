@@ -1,0 +1,9 @@
+/* Editor-only adjustments. Scripts don't run in the editor, so show everything in its final state. */
+[data-reveal] { opacity: 1 !important; transform: none !important; }
+.aw { height: auto !important; }
+.aw__st { position: relative !important; height: 70vh !important; }
+.aw__beat { opacity: 1 !important; transform: none !important; position: relative; }
+.aw__beat + .aw__beat { display: none; }
+/* Clicks select the block instead of following links inside the preview. */
+.amanah-editor-preview > * { pointer-events: none; }
+.is-selected.amanah-editor-preview, .amanah-editor-preview:hover { outline: 1px dashed var(--lake); }

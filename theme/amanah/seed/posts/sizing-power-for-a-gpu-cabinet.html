@@ -1,0 +1,108 @@
+<!-- amanah:post {"title":"How to size power for a GPU cabinet","date":"2026-09-23","category":"Guides","excerpt":"A practical way to work out how many kilowatts your GPU servers really need, and how that turns into a rack plan you can quote.","image":"power.avif"} -->
+<!-- wp:paragraph -->
+<p>Most GPU deployments are sized wrong in one of two directions. Size from the spec sheet and you pay for power you never draw. Size from a quiet benchmark and your breakers trip on the first real training run. This guide walks through a method that lands in between, in five steps you can do with a spreadsheet.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">1. Start from measured draw, not the nameplate</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The number printed on a power supply is the most it can deliver, not what your server uses. A server with four 3 kW supplies does not draw 12 kW. Some of those supplies are there for redundancy, and the rest rarely run flat out.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Measure instead. Run your heaviest real workload, usually a full training job with every GPU busy, and read peak draw from the server's management controller or a metered PDU. No hardware yet? Use the vendor's maximum-configuration power figure, which is closer to reality than the nameplate.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">2. Add everything else in the rack</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>GPUs get the attention, but they are not alone in the cabinet. Add:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Top-of-rack and management switches.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Storage nodes and any head or login servers.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Firewalls, console servers and out-of-band gear.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Each is small on its own. Together they often add a kilowatt or more.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">3. Leave headroom</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Electrical circuits should not run at 100% of their rating for hours at a time. A common rule is to keep continuous load at or below <mark class="verify">80% of the breaker rating</mark>. On top of that, leave room for growth: the next GPU generation tends to draw more, not less.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:pullquote -->
+<figure class="wp-block-pullquote"><blockquote><p>Size for the load you measure, then leave room for the load you will add.</p></blockquote></figure>
+<!-- /wp:pullquote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">4. Match power to cooling</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Every kilowatt of power you draw becomes a kilowatt of heat. A rack plan that ignores cooling is not a plan. This is why density is a property of the building, not just the rack: TOR2 at 151 Front is cooled by Enwave's deep lake water system and supports up to 25 kW per rack.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="{{theme}}/assets/images/servers.avif" alt="The fronts of rack servers with hot-swap drive bays and blue activity lights."/><figcaption class="wp-element-caption">Storage and switching add up. Count them before you count GPUs twice.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">5. Plan the feeds</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>High-density cabinets in TOR2 run on 208 V three-phase power. Spread your servers so the load is balanced across the three phases, and plug redundant supplies into <mark class="verify">separate A and B feeds</mark> so a single feed can fail without taking a server down.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">A worked example</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Say you plan three 8-GPU servers. The figures below are illustrative; use your own measurements.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Three servers at <mark class="verify">6.5 kW</mark> measured peak each: 19.5 kW.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Two switches and a storage node: <mark class="verify">1.5 kW</mark>.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Total: 21 kW, which fits one 25 kW cabinet and leaves 4 kW for growth.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Add a fourth server and the same math says two cabinets. That is a conversation worth having before the hardware ships, not after.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Send us your numbers</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Send your server count and measured draw, and we will send back a written quote within one business day. <a href="{{home}}/contact/?plan=gpu">Plan a GPU deployment</a>, or read about <a href="{{home}}/tor2-gpu-racks-25-kw/">GPU racks at 25 kW in TOR2</a>.</p>
+<!-- /wp:paragraph -->

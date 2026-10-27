@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "amanah/quotes",
+	"title": "Customer quotes",
+	"category": "amanah",
+	"description": "One large testimonial with its result, then a scrolling rail of more quotes with previous/next buttons. Rail quotes are a list edited in the code editor.",
+	"attributes": {
+		"label": { "type": "string", "default": "Colocation customers" },
+		"quote": { "type": "string", "default": "Amanah provides a reliable, scalable and cost-effective colocation solution." },
+		"name": { "type": "string", "default": "Alex Visnea" },
+		"role": { "type": "string", "default": "CTO, Qublix Games" },
+		"result": { "type": "string", "default": "10 to 15% lower AWS bill" },
+		"railTitle": { "type": "string", "default": "More from the building" },
+		"items": {
+			"type": "array",
+			"default": [
+				{ "result": "Better latency post-move", "quote": "\"Consistent uptime, clean and modern space with state of the art racking, and solid support.\"", "name": "Daniel Shapiro", "role": "President and CEO, Metro 360" },
+				{ "result": "Rack live in 24 hours", "quote": "\"Strong partnerships are built on trust, responsiveness, and shared commitment. That's why we're proud to work with Amanah.\"", "name": "TeraGo", "role": "MSP partner" },
+				{ "result": "Client since 2016", "quote": "\"We would not have been able to create our business without Amanah.\"", "name": "Ron Shaw", "role": "Proprietor, ETRdotTV" },
+				{ "result": "100% Canadian residency", "quote": "\"Our cost and worries have decreased over time. Their responsiveness and customer focus are amazing.\"", "name": "Shahzad CH", "role": "Founder and CEO, ALT MED Ontario" }
+			]
+		}
+	},
+	"supports": { "html": false, "anchor": true },
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

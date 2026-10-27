@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "amanah/journey",
+	"title": "Journey timeline",
+	"category": "amanah",
+	"description": "Heading and a timeline of steps (time label, title, text), e.g. \"From first call to a live rack in days\". Steps are a list edited in the code editor.",
+	"attributes": {
+		"heading": { "type": "string", "default": "From first call to a live rack in days." },
+		"steps": {
+			"type": "array",
+			"default": [
+				{ "time": "This week", "title": "Tour the floor", "text": "Walk TOR1 and TOR2 and see the racks you would use." },
+				{ "time": "1 business day", "title": "Written quote", "text": "Priced to your power and network, not a rate card." },
+				{ "time": "1 to 2 business days", "title": "Cross connects", "text": "Provisioned from our end, with no cap on how many." },
+				{ "time": "Go live", "title": "Rack in service", "text": "Rack it yourself, or use remote hands from $100 CAD an hour." }
+			]
+		}
+	},
+	"supports": { "html": false, "anchor": true },
+	"render": "file:./render.php"
+}

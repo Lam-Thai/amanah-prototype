@@ -1,0 +1,129 @@
+/* Data centre page (/data-centre/). Loaded on this page only, after site.css.
+   Sections: halls (paper), resilience (paper), compliance cards (dark). */
+
+/* Section heads built from core blocks: eyebrow + h2 stacked like the sample's heads. */
+.head > .dc-head-k { display: grid; gap: 20px; }
+/* The theme layer zeroes .wp-block-group margins; restore the sample's head spacing. */
+.wp-block-group.head { margin-bottom: clamp(40px, 3vw + 24px, 80px); }
+.dc-trust .head p:not(.tag) { color: var(--tx2); }
+
+/* ---------- Two halls (paper) ---------- */
+.dc-halls { display: grid; gap: 20px; }
+.dc-hall {
+	display: flex; flex-direction: column; overflow: hidden;
+	border: 1px solid var(--paper3); border-radius: var(--r-lg); background: #FFFCFB;
+}
+.dc-hall__img { aspect-ratio: 2 / 1; overflow: hidden; background: var(--ink); }
+.dc-hall__img img { width: 100%; height: 100%; object-fit: cover; }
+.dc-hall__body { display: flex; flex-direction: column; gap: 16px; flex: 1; padding: clamp(24px, 2vw + 12px, 40px); }
+.dc-hall__body .tag { margin: 0; }
+.dc-hall h3 { font: 600 clamp(1.75rem, 1.2rem + 1.6vw, 2.75rem)/1.05 var(--fd); letter-spacing: -.025em; }
+.dc-hall__lede { color: var(--ink2); font-size: 1.0625rem; max-width: 44ch; }
+.dc-hall__num { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; margin-top: 8px; padding-block: 20px; border-block: 1px solid var(--paper3); color: var(--ink2); }
+.dc-hall__num strong { font: 500 clamp(3rem, 2rem + 3.6vw, 5rem)/.9 var(--fm); letter-spacing: -.045em; font-variant-numeric: tabular-nums; color: var(--ink); }
+.dc-specs { list-style: none; margin: 0; padding: 0; }
+.dc-specs li { position: relative; padding-block: 14px; border-bottom: 1px solid var(--paper3); color: var(--ink); line-height: 1.45; }
+.dc-specs strong { display: block; margin-bottom: 4px; font: 500 .75rem/1.4 var(--fm); letter-spacing: .08em; text-transform: uppercase; color: var(--ink3); }
+.dc-hall__cta { margin-top: auto; padding-top: 12px; }
+
+.dc-shared { display: grid; gap: 4px; margin-top: clamp(32px, 3vw + 16px, 56px); }
+.dc-shared__k { font: 500 .75rem/1.5 var(--fm); letter-spacing: .14em; text-transform: uppercase; color: var(--ink3); }
+.paper .chips li { border-color: var(--paper3); background: #FFFCFB; color: var(--ink2); }
+
+@media (min-width: 600px) {
+	.dc-specs li { padding-left: 9.5rem; }
+	.dc-specs strong { position: absolute; left: 0; top: 17px; width: 9rem; margin: 0; }
+}
+@media (min-width: 900px) {
+	.dc-halls { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+}
+
+/* ---------- Resilience (paper): stats + failover sequence ---------- */
+.dc-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--paper3); }
+.dc-stats li { padding: 28px 16px 28px 0; border-bottom: 1px solid var(--paper3); color: var(--ink2); font-size: .9375rem; line-height: 1.45; }
+.dc-stats strong { display: block; margin-bottom: 12px; font: 500 clamp(2.5rem, 1.4rem + 3.6vw, 5rem)/.9 var(--fm); letter-spacing: -.05em; font-variant-numeric: tabular-nums; color: var(--ink); }
+
+.dc-fail { position: relative; display: grid; list-style: none; margin: clamp(56px, 5vw + 24px, 104px) 0 0; padding: 0; counter-reset: dcf; }
+.dc-fail li { position: relative; padding: 0 0 36px 64px; counter-increment: dcf; color: var(--ink2); line-height: 1.5; }
+.dc-fail li::before {
+	content: counter(dcf); position: absolute; left: 0; top: 0; z-index: 1;
+	width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center;
+	border: 1px solid var(--ink3); background: var(--paper); font: 500 .875rem/1 var(--fm); color: var(--ink);
+}
+.dc-fail li::after { content: ""; position: absolute; left: 20px; top: 40px; bottom: 0; width: 1px; background: var(--paper3); }
+.dc-fail li:last-child { padding-bottom: 0; }
+.dc-fail li:last-child::after { display: none; }
+/* The failure itself is the one red marker; restored power is lake blue. */
+.dc-fail li:first-child::before { background: var(--red); border-color: var(--red); color: var(--paper); }
+.dc-fail li:last-child::before { background: var(--plake); border-color: var(--plake); color: var(--paper); }
+.dc-fail em { display: block; padding-top: 10px; font: 500 .75rem/1.4 var(--fm); font-style: normal; letter-spacing: .1em; text-transform: uppercase; color: var(--plake); }
+.dc-fail strong { display: block; margin: 8px 0; font: 600 1.375rem/1.15 var(--fd); letter-spacing: -.02em; color: var(--ink); }
+.dc-resil__cta { margin-top: clamp(40px, 3vw + 16px, 64px); }
+
+@media (min-width: 900px) {
+	.dc-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+	.dc-stats li { padding: 32px 24px; }
+	.dc-stats li:first-child { padding-left: 0; }
+	.dc-stats li + li { border-left: 1px solid var(--paper3); }
+
+	/* Horizontal sequence: a rule draws left to right once the list scrolls into view. */
+	.dc-fail { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
+	.dc-fail::before { content: ""; position: absolute; left: 20px; right: 0; top: 20px; height: 1px; background: linear-gradient(90deg, var(--red), var(--ink3) 30%, var(--ink3) 70%, var(--plake)); transform-origin: left center; }
+	.js .dc-fail::before { transform: scaleX(0); transition: transform 1400ms var(--ease-out) 200ms; }
+	.js .dc-fail.is-in::before { transform: none; }
+	.dc-fail li { padding: 64px 0 0; }
+	.dc-fail li::after { display: none; }
+	.dc-fail em { padding-top: 0; }
+	.dc-fail li > :not(em):not(strong) { max-width: 30ch; }
+}
+@media (prefers-reduced-motion: reduce) {
+	.js .dc-fail::before { transform: none; transition: none; }
+}
+
+/* ---------- Compliance and security (dark) ---------- */
+.dc-trust { background: var(--bg2); border-block: 1px solid var(--line); }
+.dc-ctrl { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.dc-card {
+	--i: none;
+	position: relative; display: flex; flex-direction: column; gap: 10px;
+	padding: 28px 24px 32px; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--bg);
+}
+/* ::before is the ring, ::after the icon centred in it (padding 28/24 + (48 - 22) / 2). */
+.dc-card::before { content: ""; flex: none; width: 48px; height: 48px; margin-bottom: 18px; border-radius: 50%; border: 1px solid var(--line2); }
+.dc-card::after {
+	content: ""; position: absolute; left: 37px; top: 41px; width: 22px; height: 22px; background: var(--tx);
+	-webkit-mask: var(--i) center / contain no-repeat;
+	        mask: var(--i) center / contain no-repeat;
+}
+.dc-card__k { font: 500 .75rem/1.4 var(--fm); letter-spacing: .1em; text-transform: uppercase; color: var(--tx3); }
+.dc-card h3 { font-size: clamp(1.25rem, 1.1rem + .4vw, 1.5rem); line-height: 1.15; letter-spacing: -.02em; }
+.dc-card p:not(.dc-card__k) { color: var(--tx2); font-size: .9375rem; line-height: 1.55; }
+.dc-card .wp-block-buttons { margin-top: auto; padding-top: 12px; }
+.dc-card--cta { border-color: rgba(203, 43, 25, .45); background: linear-gradient(160deg, rgba(203, 43, 25, .16), rgba(203, 43, 25, .02) 60%), var(--bg); }
+.dc-card--cta::before { border-color: rgba(246, 122, 103, .5); }
+.dc-card--cta::after { background: var(--red-tx); }
+
+/* Icons: 24px stroke icons drawn as masks so the editor only sees a class name. */
+.dc-card--audit   { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='8' y='2' width='8' height='4' rx='1'/%3E%3Cpath d='M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2'/%3E%3Cpath d='m9 14 2 2 4-4'/%3E%3C/svg%3E"); }
+.dc-card--privacy { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='11' width='14' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 8 0v4'/%3E%3C/svg%3E"); }
+.dc-card--health  { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z'/%3E%3Cpath d='M3.2 12h4.3l1.5-3 3 6 1.5-3h7.3'/%3E%3C/svg%3E"); }
+.dc-card--bio     { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4'/%3E%3Cpath d='M14 13.12c0 2.38 0 6.38-1 8.88'/%3E%3Cpath d='M17.29 21.02c.12-.6.43-2.3.5-3.02'/%3E%3Cpath d='M2 12a10 10 0 0 1 18-6'/%3E%3Cpath d='M2 16h.01'/%3E%3Cpath d='M21.8 16c.2-2 .131-5.354 0-6'/%3E%3Cpath d='M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2'/%3E%3Cpath d='M8.65 22c.21-.66.45-1.32.57-2'/%3E%3Cpath d='M9 6.8a6 6 0 0 1 9 5.2v2'/%3E%3C/svg%3E"); }
+.dc-card--staff   { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 6v6l4 2'/%3E%3C/svg%3E"); }
+.dc-card--key     { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='7.5' cy='15.5' r='5.5'/%3E%3Cpath d='m21 2-9.6 9.6'/%3E%3Cpath d='m15.5 7.5 3 3L22 7l-3-3'/%3E%3C/svg%3E"); }
+.dc-card--pin     { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3C/svg%3E"); }
+.dc-card--cta     { --i: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z'/%3E%3Cpath d='M14 2v6h6M9 13h6M9 17h4'/%3E%3C/svg%3E"); }
+
+@media (min-width: 600px) {
+	.dc-ctrl { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+}
+@media (min-width: 1080px) {
+	.dc-ctrl { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Finale: the emphasised words in the closing headline read in the accent red, like the hero. */
+.finale h2 em { font-style: normal; color: var(--red-mark); }
+
+/* Mono numerals with units ("25 kW", "48 h"): tighten the full-width mono space. */
+.dc-hall__num strong, .dc-stats strong { word-spacing: -.4em; }
+.dc-shared .chips { margin-top: 12px; }
+.dc-card .wp-block-button__link { padding: 0 18px; font-size: .9375rem; white-space: nowrap; }

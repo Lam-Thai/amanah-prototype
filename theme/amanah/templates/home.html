@@ -1,0 +1,85 @@
+<!-- wp:template-part {"slug":"header","tagName":"div","className":"site-header-part"} /-->
+
+<!-- wp:group {"tagName":"main","anchor":"main"} -->
+<main class="wp-block-group" id="main"><!-- wp:amanah/page-hero {"eyebrow":"News · 151 Front Street West","title":"News and notes from <em>151 Front.</em>","lede":"What is new in TOR1 and TOR2, and practical guides to power, network and compliance from the team that runs the building.","primaryLabel":"","secondaryLabel":"","className":"news-hero"} /-->
+
+<!-- wp:group {"tagName":"section","className":"sec news-latest"} -->
+<section class="wp-block-group sec news-latest"><!-- wp:group {"className":"wrap"} -->
+<div class="wp-block-group wrap"><!-- wp:query {"queryId":1,"query":{"perPage":1,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":false}} -->
+<div class="wp-block-query"><!-- wp:post-template {"className":"news-latest__list"} -->
+<!-- wp:group {"tagName":"article","className":"news-feature"} -->
+<article class="wp-block-group news-feature"><!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","className":"news-feature__img"} /-->
+
+<!-- wp:group {"className":"news-feature__body reveal"} -->
+<div class="wp-block-group news-feature__body reveal"><!-- wp:paragraph {"className":"tag"} -->
+<p class="tag">Latest</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:group {"className":"news-meta"} -->
+<div class="wp-block-group news-meta"><!-- wp:post-terms {"term":"category"} /-->
+
+<!-- wp:post-date /--></div>
+<!-- /wp:group -->
+
+<!-- wp:post-title {"level":2,"isLink":true} /-->
+
+<!-- wp:post-excerpt {"excerptLength":40} /-->
+
+<!-- wp:read-more {"content":"Read the article","className":"news-feature__more"} /--></div>
+<!-- /wp:group --></article>
+<!-- /wp:group -->
+<!-- /wp:post-template --></div>
+<!-- /wp:query --></div>
+<!-- /wp:group --></section>
+<!-- /wp:group -->
+
+<!-- wp:group {"tagName":"section","className":"sec paper news-index"} -->
+<section class="wp-block-group sec paper news-index"><!-- wp:group {"className":"wrap"} -->
+<div class="wp-block-group wrap"><!-- wp:group {"className":"head head--split news-index__head"} -->
+<div class="wp-block-group head head--split news-index__head"><!-- wp:heading -->
+<h2 class="wp-block-heading">More news and guides.</h2>
+<!-- /wp:heading -->
+
+<!-- wp:amanah/news-filter /--></div>
+<!-- /wp:group -->
+
+<!-- wp:query {"queryId":2,"query":{"perPage":9,"pages":0,"offset":1,"postType":"post","order":"desc","orderBy":"date","inherit":false}} -->
+<div class="wp-block-query"><!-- wp:post-template {"className":"news-grid"} -->
+<!-- wp:group {"tagName":"article","className":"news-card"} -->
+<article class="wp-block-group news-card"><!-- wp:post-featured-image {"aspectRatio":"3/2","className":"news-card__img"} /-->
+
+<!-- wp:group {"className":"news-card__body"} -->
+<div class="wp-block-group news-card__body"><!-- wp:group {"className":"news-meta"} -->
+<div class="wp-block-group news-meta"><!-- wp:post-terms {"term":"category"} /-->
+
+<!-- wp:post-date /--></div>
+<!-- /wp:group -->
+
+<!-- wp:post-title {"level":3,"isLink":true,"className":"news-card__title"} /-->
+
+<!-- wp:post-excerpt {"excerptLength":40} /--></div>
+<!-- /wp:group --></article>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+
+<!-- wp:query-pagination {"className":"news-pager"} -->
+<!-- wp:query-pagination-previous /-->
+
+<!-- wp:query-pagination-numbers /-->
+
+<!-- wp:query-pagination-next /-->
+<!-- /wp:query-pagination -->
+
+<!-- wp:query-no-results -->
+<!-- wp:paragraph {"className":"news-empty"} -->
+<p class="news-empty">More articles are on the way.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results --></div>
+<!-- /wp:query --></div>
+<!-- /wp:group --></section>
+<!-- /wp:group -->
+
+<!-- wp:amanah/finale /--></main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"div","className":"site-footer-part"} /-->

@@ -1,0 +1,85 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "amanah/story",
+	"title": "Story (sticky media + steps)",
+	"category": "amanah",
+	"description": "\"What your rack runs on\": sticky image with caption, scrolling steps with a big number, chips and a live line graphic, then the carriers band. Steps and carriers are lists edited in the code editor.",
+	"attributes": {
+		"heading": { "type": "string", "default": "What your rack runs on." },
+		"intro": { "type": "string", "default": "You bring the servers. The building brings everything around them, sized for dense compute and independently audited." },
+		"steps": {
+			"type": "array",
+			"default": [
+				{
+					"key": "Power",
+					"num": "25",
+					"unit": "kW per rack",
+					"title": "Redundant power, ready for GPUs",
+					"text": "Every rack runs on N+1 UPS with diesel generator failover. TOR2 delivers three-phase power for high-density compute.",
+					"chips": [ "N+1 UPS", "Generator failover", "208 V three-phase" ],
+					"image": "power.avif",
+					"alt": "Closed grey UPS and switchgear cabinets with green status displays.",
+					"cap": "Power room",
+					"line": "power"
+				},
+				{
+					"key": "Cooling",
+					"num": "Lake",
+					"unit": "Ontario",
+					"title": "Cooled by deep lake water",
+					"text": "The building is cooled through Enwave's deep lake water system, drawing cold water from Lake Ontario.",
+					"chips": [ "Enwave deep lake cooling", "High-density ready" ],
+					"image": "cooling.avif",
+					"alt": "A chilled-water plant room with insulated pipes and a plate heat exchanger.",
+					"cap": "Cooling plant",
+					"line": "waves"
+				},
+				{
+					"key": "Security",
+					"num": "SOC 2",
+					"unit": "Type II",
+					"title": "Locked, logged and audited",
+					"text": "Biometric access, staff on site around the clock, unescorted access for your team, and a SOC 2 Type II report your auditors can read.",
+					"chips": [ "Biometric access", "24/7 on-site staff", "PIPEDA and PHIPA" ],
+					"image": "security.avif",
+					"alt": "A locked mesh cage door with a biometric reader glowing green.",
+					"cap": "Access control",
+					"line": "audit"
+				},
+				{
+					"key": "Connectivity",
+					"num": "400",
+					"unit": "+ networks",
+					"title": "Carriers one cross connect away",
+					"text": "Your rack sits in the building where Canadian carriers meet. Cross connects are provisioned from our end in 1 to 2 business days, with no cap.",
+					"chips": [ "TorIX at 100 Gbps", "Diverse fibre entry", "No cross connect cap" ],
+					"image": "meet-me-room.avif",
+					"alt": "Fibre patch panels with neatly dressed yellow and aqua fibre cords.",
+					"cap": "Meet-me room",
+					"line": "conv"
+				}
+			]
+		},
+		"convLabel": { "type": "string", "default": "Your rack" },
+		"carriersTitle": { "type": "string", "default": "On-net at 151 Front, ready to cross connect." },
+		"carriersText": { "type": "string", "default": "A sample of the carriers, exchange and cloud on-ramps you can reach from your rack without leaving the building." },
+		"carriers": {
+			"type": "array",
+			"default": [
+				{ "name": "TorIX", "kind": "Internet exchange" },
+				{ "name": "Beanfield", "kind": "Carrier" },
+				{ "name": "Cogent", "kind": "Carrier" },
+				{ "name": "Zayo", "kind": "Carrier" },
+				{ "name": "NetActuate", "kind": "Network" }
+			]
+		},
+		"carriersMore": {
+			"type": "object",
+			"default": { "value": "400+", "label": "Networks in the building" }
+		}
+	},
+	"supports": { "html": false, "anchor": true },
+	"render": "file:./render.php",
+	"viewScript": [ "amanah-lines", "file:./view.js" ]
+}

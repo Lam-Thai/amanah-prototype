@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "amanah/site-header",
+	"title": "Site header",
+	"category": "amanah",
+	"description": "Logo, header navigation (Appearance → Menus → Header navigation), quote button and mobile drawer.",
+	"attributes": {
+		"ctaLabel": { "type": "string", "default": "Get a quote" },
+		"ctaUrl": { "type": "string", "default": "/contact/" },
+		"portalLabel": { "type": "string", "default": "Client portal" },
+		"portalUrl": { "type": "string", "default": "/contact/#support" }
+	},
+	"supports": { "html": false, "multiple": false, "reusable": false },
+	"render": "file:./render.php"
+}

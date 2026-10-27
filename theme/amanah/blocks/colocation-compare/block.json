@@ -1,0 +1,34 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "amanah/colocation-compare",
+	"title": "Plan comparison",
+	"category": "amanah",
+	"description": "Dark section with the colocation plans side by side: footprint, access, power, starting price and who each plan suits. A table on desktop, stacked cards on phones. Each row links to the plan picker with that plan selected. Rows are a list edited in the code editor (cells accept <mark class=\"verify\"> and <b>).",
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "Side by side" },
+		"heading": { "type": "string", "default": "Five footprints, one building." },
+		"intro": { "type": "string", "default": "The same power, cooling, security and network sit behind every plan. What changes is how much space you hold, who can open it, and how much power it draws." },
+		"columns": {
+			"type": "object",
+			"default": { "plan": "Plan", "footprint": "Footprint", "access": "Access", "power": "Power", "price": "From, CAD / month", "best": "Best for" }
+		},
+		"chooseLabel": { "type": "string", "default": "Choose" },
+		"planUrl": { "type": "string", "default": "/colocation/" },
+		"note": { "type": "string", "default": "Power, bandwidth and cross connects are quoted to your load." },
+		"rows": {
+			"type": "array",
+			"default": [
+				{ "id": "shared", "name": "Per U", "footprint": "1 U and up in a shared 42 U cabinet", "access": "Locked shared cabinet, 24/7 floor access", "power": "Quoted to your load", "price": "$149 / U", "best": "One to a few servers", "fill": 0.06 },
+				{ "id": "quarter", "name": "Quarter rack", "footprint": "10 U", "access": "Your own keyed compartment", "power": "Quoted to your load", "price": "$749", "best": "A small stack and its network gear", "fill": 0.25 },
+				{ "id": "half", "name": "Half rack", "footprint": "21 U", "access": "Your own locked door", "power": "Quoted to your load", "price": "Quoted", "best": "A growing stack with room to add", "fill": 0.5 },
+				{ "id": "full", "name": "Full rack", "footprint": "42 U", "access": "Dedicated locked cabinet", "power": "Up to 25 kW in TOR2", "price": "$1,999", "best": "A full stack, or dense GPU compute", "fill": 1 },
+				{ "id": "suite", "name": "Private suite", "footprint": "Several racks in a cage", "access": "Cage with its own access control", "power": "Built to your plan", "price": "Quoted", "best": "Teams that need their own room", "fill": 1, "racks": 3 }
+			]
+		}
+	},
+	"supports": { "html": false, "anchor": true },
+	"render": "file:./render.php",
+	"style": "file:./style.css",
+	"viewScript": "file:./view.js"
+}

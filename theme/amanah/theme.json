@@ -1,0 +1,55 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": false,
+		"useRootPaddingAwareAlignments": false,
+		"layout": {
+			"contentSize": "1280px",
+			"wideSize": "1440px"
+		},
+		"spacing": {
+			"blockGap": null,
+			"padding": false,
+			"margin": false,
+			"defaultSpacingSizes": false
+		},
+		"color": {
+			"defaultPalette": false,
+			"defaultGradients": false,
+			"defaultDuotone": false,
+			"custom": false,
+			"customGradient": false,
+			"palette": [
+				{ "slug": "bg", "name": "Night", "color": "#171210" },
+				{ "slug": "tx", "name": "Bone", "color": "#FBF7F6" },
+				{ "slug": "paper", "name": "Paper", "color": "#FBF7F6" },
+				{ "slug": "ink", "name": "Ink", "color": "#27201D" },
+				{ "slug": "red", "name": "Signal red", "color": "#CB2B19" },
+				{ "slug": "lake", "name": "Lake blue", "color": "#33B4DE" }
+			]
+		},
+		"typography": {
+			"defaultFontSizes": false,
+			"customFontSize": false,
+			"fluid": false,
+			"dropCap": false,
+			"fontFamilies": [
+				{ "slug": "display", "name": "Poppins", "fontFamily": "Poppins, 'Poppins Fallback', system-ui, sans-serif" },
+				{ "slug": "text", "name": "Inter", "fontFamily": "Inter, 'Inter Fallback', system-ui, sans-serif" },
+				{ "slug": "mono", "name": "JetBrains Mono", "fontFamily": "'JetBrains Mono', 'Mono Fallback', monospace" }
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "#171210",
+			"text": "#FBF7F6"
+		}
+	},
+	"templateParts": [
+		{ "name": "header", "title": "Header", "area": "header" },
+		{ "name": "footer", "title": "Footer", "area": "footer" }
+	],
+	"customTemplates": []
+}

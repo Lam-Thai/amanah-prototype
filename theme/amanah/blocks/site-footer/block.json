@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "amanah/site-footer",
+	"title": "Site footer",
+	"category": "amanah",
+	"description": "Sales contacts, sitemap columns, addresses and legal links.",
+	"attributes": {
+		"phone": { "type": "string", "default": "+1 416 603 9825" },
+		"bigWord": { "type": "string", "default": "151 Front" }
+	},
+	"supports": { "html": false, "multiple": false, "reusable": false },
+	"render": "file:./render.php"
+}

@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "amanah/page-hero",
+	"title": "Page hero",
+	"category": "amanah",
+	"description": "Dark opening section of an inner page: eyebrow, headline (wrap words in <em> for red), lede, two buttons, optional image and key facts.",
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "" },
+		"title": { "type": "string", "default": "Page title" },
+		"lede": { "type": "string", "default": "" },
+		"primaryLabel": { "type": "string", "default": "Get a quote" },
+		"primaryUrl": { "type": "string", "default": "/contact/" },
+		"secondaryLabel": { "type": "string", "default": "Book a tour" },
+		"secondaryUrl": { "type": "string", "default": "/contact/#tour" },
+		"image": { "type": "string", "default": "" },
+		"facts": { "type": "array", "default": [] }
+	},
+	"supports": { "html": false, "anchor": true },
+	"render": "file:./render.php"
+}
