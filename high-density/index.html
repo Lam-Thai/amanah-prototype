@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name='robots' content='noindex, nofollow' />
+<meta name="theme-color" content="#171210">
+<link rel="icon" href="/amanah-prototype/wp-content/themes/amanah/assets/images/favicon.svg" type="image/svg+xml">
+<meta name="description" content="GPU colocation in Toronto: TOR2 at 151 Front Street West takes up to 25 kW per rack on 208 V three-phase, cooled by Enwave deep lake water, with unmetered 100 Gbps ports.">
+<title>AI and GPU colocation &#8211; Amanah</title>
+<link rel="preload" href="/amanah-prototype/wp-content/themes/amanah/assets/fonts/inter-100-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/amanah-prototype/wp-content/themes/amanah/assets/fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-block-paragraph-inline-css">
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=/amanah-prototype/wp-includes/blocks/paragraph/style.min.css */
+</style>
+<style id="wp-block-heading-inline-css">
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=/amanah-prototype/wp-includes/blocks/heading/style.min.css */
+</style>
+<style id="wp-block-group-inline-css">
+.wp-block-group{box-sizing:border-box}:where(.wp-block-group.wp-block-group-is-layout-constrained){position:relative}
+/*# sourceURL=/amanah-prototype/wp-includes/blocks/group/style.min.css */
+</style>
+<style id="wp-block-list-inline-css">
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=/amanah-prototype/wp-includes/blocks/list/style.min.css */
+</style>
+<style id="amanah-high-density-racks-style-inline-css">
+/* amanah/high-density-racks: the same cluster drawn as cabinets at two power budgets (paper surface). */
+.dens__legend { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; list-style: none; margin: 0 0 20px; padding: 0; font: 500 .8125rem/1.4 var(--fm); color: var(--ink2); }
+.dens__legend li { display: inline-flex; align-items: center; gap: 10px; }
+.dens__legend .dens-u { width: 28px; flex: none; --tone: var(--ink); }
+.dens__count { margin-left: auto; color: var(--ink3); }
+
+.dens__rows { display: grid; gap: 16px; }
+.dens-row { --tone: var(--ink3); display: grid; gap: 28px; padding: 24px; border-radius: var(--r-lg); background: var(--paper2); border: 1px solid var(--paper3); }
+.dens-row--red { --tone: var(--pred); background: var(--paper); border-color: rgba(203,43,25,.28); box-shadow: 0 24px 60px -40px rgba(39,32,29,.35); }
+
+.dens-row__k { font: 500 .75rem/1.5 var(--fm); letter-spacing: .14em; text-transform: uppercase; color: var(--ink2); }
+.dens-row--red .dens-row__k { color: var(--pred); }
+.dens-row__kw { margin-top: 12px; font: 500 clamp(2.75rem, 2rem + 2.4vw, 4.25rem)/.9 var(--fm); letter-spacing: -.045em; color: var(--ink); white-space: nowrap; }
+.dens-row__kw small { font-size: .3em; letter-spacing: 0; margin-left: .5em; color: var(--ink3); }
+.dens-meter { display: block; margin-top: 18px; height: 4px; border-radius: 2px; background: var(--paper3); overflow: hidden; }
+.dens-meter i { display: block; height: 100%; background: var(--tone); transform-origin: left; transform: scaleX(var(--w, 1)); transition: transform 900ms var(--ease-out) 150ms; }
+.dens-row__note { margin-top: 14px; font-size: .875rem; line-height: 1.5; color: var(--ink2); max-width: 32ch; }
+
+/* Cabinets: slots stack from the bottom, filled ones in the row's tone. */
+.dens-row__racks { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 8px; }
+.dens-cab { display: flex; flex-direction: column-reverse; gap: 3px; width: 28px; padding: 5px 4px 8px; border-radius: 5px; border: 1.5px solid var(--ink3); border-top-width: 4px; background: var(--paper); }
+.dens-u { position: relative; display: block; height: 8px; border-radius: 2px; background: var(--paper3); overflow: hidden; }
+.dens-u.on::after { content: ""; position: absolute; inset: 0; background: var(--tone); transform-origin: left; transition: transform 360ms var(--ease-out); transition-delay: calc(var(--i, 0) * 45ms + 250ms); }
+.dens-more { align-self: center; font: 500 .875rem/1 var(--fm); color: var(--ink2); }
+
+.dens-row__total { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.dens-row__total b { font: 600 clamp(2.5rem, 1.8rem + 2.4vw, 4rem)/1 var(--fd); letter-spacing: -.035em; color: var(--ink); }
+.dens-row--red .dens-row__total b { color: var(--pred); }
+.dens-row__total span { font: 500 .75rem/1.5 var(--fm); letter-spacing: .08em; text-transform: uppercase; color: var(--ink2); }
+.dens-row__total span:last-child { flex-basis: 100%; color: var(--ink3); }
+
+.dens__sum { display: grid; gap: 16px; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--paper3); }
+.dens__ratio { font: 600 clamp(1.5rem, 1.1rem + 1.4vw, 2.5rem)/1.1 var(--fd); letter-spacing: -.025em; max-width: 26ch; }
+.dens__ratio b { font-weight: 600; color: var(--pred); }
+.dens__foot { font-size: .875rem; line-height: 1.55; color: var(--ink2); max-width: 52ch; }
+
+/* Before the row scrolls in: meter empty, slots dark. site.js adds .is-in. */
+.js .dens-row:not(.is-in) .dens-meter i { transform: scaleX(0); }
+.js .dens-row:not(.is-in) .dens-u.on::after { transform: scaleX(0); }
+
+@media (min-width: 600px) {
+	.dens-row__racks { gap: 10px; }
+	.dens-cab { width: 36px; padding: 6px 5px 10px; }
+	.dens-u { height: 10px; }
+}
+@media (min-width: 1000px) {
+	.dens-row { grid-template-columns: minmax(240px, .9fr) minmax(0, 2.1fr) minmax(150px, .6fr); align-items: center; gap: 40px; padding: 36px 40px; }
+	.dens-row__racks { gap: 12px; }
+	.dens-cab { width: 46px; padding: 7px 6px 12px; }
+	.dens-u { height: 11px; }
+	.dens-row__total { display: grid; gap: 4px; }
+	.dens__sum { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); align-items: end; gap: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+	.dens-meter i, .dens-u.on::after { transition: none; }
+	.js .dens-row:not(.is-in) .dens-meter i { transform: scaleX(var(--w, 1)); }
+	.js .dens-row:not(.is-in) .dens-u.on::after { transform: none; }
+}
+
+/*# sourceURL=/amanah-prototype/wp-content/themes/amanah/blocks/high-density-racks/style.css */
+</style>
+<style id="wp-block-details-inline-css">
+.wp-block-details{box-sizing:border-box}.wp-block-details summary{cursor:pointer}
+/*# sourceURL=/amanah-prototype/wp-includes/blocks/details/style.min.css */
+</style>
+<style id="wp-block-post-content-inline-css">
+.wp-block-post-content{display:flow-root}
+/*# sourceURL=/amanah-prototype/wp-includes/blocks/post-content/style.min.css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--bg: #171210;--wp--preset--color--tx: #FBF7F6;--wp--preset--color--paper: #FBF7F6;--wp--preset--color--ink: #27201D;--wp--preset--color--red: #CB2B19;--wp--preset--color--lake: #33B4DE;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-family--display: Poppins, 'Poppins Fallback', system-ui, sans-serif;--wp--preset--font-family--text: Inter, 'Inter Fallback', system-ui, sans-serif;--wp--preset--font-family--mono: 'JetBrains Mono', 'Mono Fallback', monospace;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:root { --wp--style--global--content-size: 1280px;--wp--style--global--wide-size: 1440px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{background-color: #171210;color: #FBF7F6;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-bg-color{color: var(--wp--preset--color--bg) !important;}.has-tx-color{color: var(--wp--preset--color--tx) !important;}.has-paper-color{color: var(--wp--preset--color--paper) !important;}.has-ink-color{color: var(--wp--preset--color--ink) !important;}.has-red-color{color: var(--wp--preset--color--red) !important;}.has-lake-color{color: var(--wp--preset--color--lake) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-bg-background-color{background-color: var(--wp--preset--color--bg) !important;}.has-tx-background-color{background-color: var(--wp--preset--color--tx) !important;}.has-paper-background-color{background-color: var(--wp--preset--color--paper) !important;}.has-ink-background-color{background-color: var(--wp--preset--color--ink) !important;}.has-red-background-color{background-color: var(--wp--preset--color--red) !important;}.has-lake-background-color{background-color: var(--wp--preset--color--lake) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-bg-border-color{border-color: var(--wp--preset--color--bg) !important;}.has-tx-border-color{border-color: var(--wp--preset--color--tx) !important;}.has-paper-border-color{border-color: var(--wp--preset--color--paper) !important;}.has-ink-border-color{border-color: var(--wp--preset--color--ink) !important;}.has-red-border-color{border-color: var(--wp--preset--color--red) !important;}.has-lake-border-color{border-color: var(--wp--preset--color--lake) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-display-font-family{font-family: var(--wp--preset--font-family--display) !important;}.has-text-font-family{font-family: var(--wp--preset--font-family--text) !important;}.has-mono-font-family{font-family: var(--wp--preset--font-family--mono) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<style id="wp-block-template-skip-link-inline-css">
+/*! This file is auto-generated */
+.skip-link.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute!important;width:1px;word-wrap:normal!important;word-break:normal!important}.skip-link.screen-reader-text:focus{background-color:#eee;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}
+/*# sourceURL=/wp-includes/css/wp-block-template-skip-link.min.css */
+</style>
+<link rel='stylesheet' id='amanah-site-css' href='/amanah-prototype/wp-content/themes/amanah/assets/css/site.css?ver=1793067958' media='all' />
+<link rel='stylesheet' id='amanah-page-css' href='/amanah-prototype/wp-content/themes/amanah/assets/css/pages/high-density.css?ver=1793051452' media='all' />
+<script data-wp-strategy="defer" defer id="amanah-story-view-script-2-js" src="/amanah-prototype/wp-content/themes/amanah/blocks/story/view.js?ver=1793050075"></script>
+<meta name="generator" content="WordPress 7.1.3" />
+<link rel="canonical" href="/amanah-prototype/high-density/" />
+</head>
+
+<body class="wp-singular page-template-default page page-id-90 wp-embed-responsive wp-theme-amanah">
+
+<a class="skip-link screen-reader-text" id="wp-skip-link" href="#main">Skip to content</a><div class="wp-site-blocks"><div class="site-header-part wp-block-template-part"><header class="hdr" id="hdr">
+	<div class="wrap hdr__in">
+		<a class="logo" href="/amanah-prototype/" aria-label="Amanah, home"><img fetchpriority="high" decoding="async" src="/amanah-prototype/wp-content/themes/amanah/assets/images/logo-dark.png" width="775" height="128" alt=""></a>
+		<nav aria-label="Primary">
+			<ul class="nav">
+														<li><a class="lead" href="/amanah-prototype/colocation/">Colocation</a></li>
+														<li><a class="nav-ai" href="/amanah-prototype/high-density/" aria-current="page">AI and GPU</a></li>
+														<li><a href="/amanah-prototype/services/">Services</a></li>
+														<li><a href="/amanah-prototype/data-centre/">Data centre</a></li>
+														<li><a href="/amanah-prototype/about/">Company</a></li>
+							</ul>
+		</nav>
+		<div class="hdr__act">
+			<a class="portal" href="/amanah-prototype/contact/#support">Client portal</a>
+			<a class="btn btn--red btn--sm" href="/amanah-prototype/contact/">Get a quote</a>
+			<button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Open menu"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
+		</div>
+	</div>
+</header>
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+			<a href="/amanah-prototype/colocation/">Colocation <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+			<a href="/amanah-prototype/high-density/">AI and GPU <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+			<a href="/amanah-prototype/services/">Services <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+			<a href="/amanah-prototype/data-centre/">Data centre <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+			<a href="/amanah-prototype/about/">Company <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+		<a href="/amanah-prototype/contact/#support">Client portal <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+	<a class="btn btn--red" href="/amanah-prototype/contact/">Get a quote</a>
+</div>
+
+</div>
+
+
+<main class="wp-block-group is-layout-flow wp-block-group-is-layout-flow" id="main"><div class="entry-content wp-block-post-content is-layout-flow wp-block-post-content-is-layout-flow"><section class="phero wp-block-amanah-page-hero">
+			<div class="phero__img" aria-hidden="true"><img src="/amanah-prototype/wp-content/themes/amanah/assets/images/high-density.avif" alt="" fetchpriority="high" decoding="async"></div>
+		<div class="wrap">
+		<div class="phero__in">
+							<p class="phero__k">AI and GPU colocation · TOR2</p>
+						<h1>Racks that keep up with <em>your GPUs.</em></h1>
+							<p class="phero__lede">TOR2 at 151 Front Street West feeds up to 25 kW to each cabinet on 208 V three-phase power, cools the hall with Enwave deep lake water and connects it with unmetered 100 Gbps ports.</p>
+										<div class="phero__cta">
+											<a class="btn btn--red" href="/amanah-prototype/contact/?plan=gpu#quote">Plan a GPU deployment <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+																<a class="btn btn--ghost" href="/amanah-prototype/contact/#tour">Book a TOR2 tour</a>
+									</div>
+										<ul class="phero__facts">
+											<li><b>25 kW</b><span>per rack</span></li>
+											<li><b>208 V</b><span>three-phase</span></li>
+											<li><b>100 Gbps</b><span>unmetered ports</span></li>
+											<li><b>SOC 2</b><span>Type II audited</span></li>
+									</ul>
+					</div>
+	</div>
+</section>
+
+
+
+<section class="wp-block-group sec paper hd-loads is-layout-flow wp-block-group-is-layout-flow" id="workloads">
+<div class="wp-block-group wrap is-layout-flow wp-block-group-is-layout-flow">
+<div class="wp-block-group head head--split reveal is-layout-flow wp-block-group-is-layout-flow">
+<div class="wp-block-group hd-head is-layout-flow wp-block-group-is-layout-flow">
+<p class="tag wp-block-paragraph">Workloads</p>
+
+
+
+<h2 class="wp-block-heading">Three workloads, one dense hall.</h2>
+</div>
+
+
+
+<p class="wp-block-paragraph">Training, inference and HPC push a rack in different ways. Here is what each one asks of the building, and how TOR2 answers.</p>
+</div>
+
+
+
+<div class="wp-block-group hd-loads__grid is-layout-flow wp-block-group-is-layout-flow">
+<div class="wp-block-group hd-load reveal is-layout-flow wp-block-group-is-layout-flow">
+<figure class="hd-load__fig hd-load__fig--training" aria-hidden="true"><svg viewBox="0 0 300 72" preserveAspectRatio="none"><line class="lim" x1="0" y1="6" x2="300" y2="6"/><path pathLength="1" d="M0 62H15C27 62 27 14 42 13L80 14L120 12L160 14L200 13L240 12L280 14L300 13"/></svg><figcaption><span>Power draw</span><span>Rack limit</span></figcaption></figure>
+
+
+
+<p class="hd-load__k wp-block-paragraph">01 · Training</p>
+
+
+
+<h3 class="wp-block-heading">Weeks at full power.</h3>
+
+
+
+<p class="wp-block-paragraph">Training holds every GPU near its peak for days on end, across nodes that need to sit close together.</p>
+
+
+
+<p class="hd-load__lbl wp-block-paragraph">How TOR2 answers</p>
+
+
+
+<ul class="wp-block-list hd-fit">
+<li>25 kW per rack keeps nodes in neighbouring cabinets</li>
+
+
+
+<li>N+1 UPS and generator behind every circuit</li>
+
+
+
+<li>Unmetered 100 Gbps for dataset pulls</li>
+</ul>
+</div>
+
+
+
+<div class="wp-block-group hd-load reveal reveal-d1 is-layout-flow wp-block-group-is-layout-flow">
+<figure class="hd-load__fig hd-load__fig--inference" aria-hidden="true"><svg viewBox="0 0 300 72" preserveAspectRatio="none"><line class="lim" x1="0" y1="6" x2="300" y2="6"/><path pathLength="1" d="M0 50C30 50 42 28 75 28S120 52 150 52S198 24 230 24S282 46 300 46"/></svg><figcaption><span>Power draw</span><span>Rack limit</span></figcaption></figure>
+
+
+
+<p class="hd-load__k wp-block-paragraph">02 · Inference</p>
+
+
+
+<h3 class="wp-block-heading">Always on, close to users.</h3>
+
+
+
+<p class="wp-block-paragraph">Serving models is steady load that follows your users. Latency and uptime matter more than peak draw.</p>
+
+
+
+<p class="hd-load__lbl wp-block-paragraph">How TOR2 answers</p>
+
+
+
+<ul class="wp-block-list hd-fit">
+<li>400+ networks in the building</li>
+
+
+
+<li>TorIX at 100 Gbps</li>
+
+
+
+<li>Cloud Connect to AWS, Azure, Google Cloud and Cloudflare</li>
+</ul>
+</div>
+
+
+
+<div class="wp-block-group hd-load reveal reveal-d2 is-layout-flow wp-block-group-is-layout-flow">
+<figure class="hd-load__fig hd-load__fig--hpc" aria-hidden="true"><svg viewBox="0 0 300 72" preserveAspectRatio="none"><line class="lim" x1="0" y1="6" x2="300" y2="6"/><path pathLength="1" d="M0 62H27C35 62 35 12 42 12H102C110 12 110 62 117 62H157C165 62 165 16 172 16H222C230 16 230 62 237 62H300"/></svg><figcaption><span>Power draw</span><span>Rack limit</span></figcaption></figure>
+
+
+
+<p class="hd-load__k wp-block-paragraph">03 · HPC and rendering</p>
+
+
+
+<h3 class="wp-block-heading">Bursts on a deadline.</h3>
+
+
+
+<p class="wp-block-paragraph">Simulation and render queues spike to full power for a batch, then fall back. Someone may need to swap a drive at 2 a.m.</p>
+
+
+
+<p class="hd-load__lbl wp-block-paragraph">How TOR2 answers</p>
+
+
+
+<ul class="wp-block-list hd-fit">
+<li>Three-phase headroom for the peaks</li>
+
+
+
+<li>Staff on site 24/7</li>
+
+
+
+<li>Remote hands from $100 CAD an hour</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="ai wp-block-amanah-ai-gpu" id="tor2" aria-labelledby="ai-h-1">
+	<div class="ai__rule" aria-hidden="true"></div>
+	<div class="wrap">
+		<div class="ai__top">
+			<div class="ai__copy" data-reveal>
+									<p><span class="ai-badge"><span class="ai-dot" aria-hidden="true"></span>Why density matters</span></p>
+								<h2 id="ai-h-1">Fit the cluster in <span class="ai-grad">fewer racks.</span></h2>
+									<p>When a rack runs out of power before it runs out of space, GPU servers end up spread across half-empty cabinets. TOR2 feeds each cabinet up to 25 kW, so your cluster stays together.</p>
+											</div>
+							<figure class="ai__visual" data-reveal style="--d:1">
+					<div class="frame">
+						<picture><img decoding="async" src="/amanah-prototype/wp-content/themes/amanah/assets/images/high-density.avif" width="1800" height="1195" loading="lazy" alt="A row of high-density GPU cabinets with blue and red liquid cooling lines running into overhead manifolds."></picture>
+						<div class="glow" aria-hidden="true"></div>
+													<p class="chip chip--b"><b>208 V</b><span>three-phase</span></p>
+											</div>
+				</figure>
+					</div>
+					<ol class="specs2">
+														<li class="srow" data-reveal>
+						<p class="srow__n">25<small>kW</small></p>
+						<div class="srow__t"><h3>Power per cabinet</h3><p>Three-phase 208 V to every high-density cabinet, backed by N+1 UPS and generator failover.</p></div>
+						<canvas class="l-power" aria-hidden="true"></canvas>					</li>
+														<li class="srow" data-reveal>
+						<p class="srow__n">100<small>Gbps</small></p>
+						<div class="srow__t"><h3>Unmetered ports</h3><p>Move training data in and serve inference out without bandwidth caps or overage bills.</p></div>
+						<canvas class="l-net" aria-hidden="true"></canvas>					</li>
+							</ol>
+							<div class="specs2__end" data-reveal>
+				<p>Bring your GPUs, or have us build and rack them.</p>
+									<a class="btn btn--red" href="/amanah-prototype/contact/?plan=gpu#quote">Start a GPU quote <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+							</div>
+			</div>
+</section>
+
+
+<section class="sec paper dens wp-block-amanah-high-density-racks" id="density" aria-labelledby="dens-h-2">
+	<div class="wrap">
+		<div class="head head--split" data-reveal>
+			<div style="display:grid;gap:20px">
+									<p class="tag">Rack density</p>
+								<h2 id="dens-h-2">Power, not space, decides how many racks you rent.</h2>
+			</div>
+							<p>A 42U cabinet has room for plenty of GPU servers. What runs out first is power. Here is the same <mark class="verify">16-server</mark> cluster placed in a TOR2 cabinet and in a typical colocation rack.</p>
+					</div>
+
+		<ul class="dens__legend" data-reveal>
+			<li><i class="dens-u on" aria-hidden="true"></i>One 4-GPU server, <mark class="verify">about 3 kW</mark></li>
+							<li><i class="dens-u" aria-hidden="true"></i>Space you pay for but cannot power</li>
+						<li class="dens__count">16 servers × 3 kW</li>
+		</ul>
+
+		<div class="dens__rows">
+											<div class="dens-row dens-row--red" data-reveal>
+					<div class="dens-row__meta">
+						<p class="dens-row__k">TOR2 high-density rack</p>
+						<p class="dens-row__kw">25<small>kW per rack</small></p>
+						<span class="dens-meter" aria-hidden="true"><i style="--w:1"></i></span>
+													<p class="dens-row__note">208 V three-phase, N+1 UPS and generator</p>
+											</div>
+					<div class="dens-row__racks" role="img" aria-label="2 racks with 8 servers each, 2 slots left empty in each">
+													<span class="dens-cab">
+								<i class="dens-u on" style="--i:0"></i><i class="dens-u on" style="--i:1"></i><i class="dens-u on" style="--i:2"></i><i class="dens-u on" style="--i:3"></i><i class="dens-u on" style="--i:4"></i><i class="dens-u on" style="--i:5"></i><i class="dens-u on" style="--i:6"></i><i class="dens-u on" style="--i:7"></i><i class="dens-u"></i><i class="dens-u"></i>							</span>
+													<span class="dens-cab">
+								<i class="dens-u on" style="--i:8"></i><i class="dens-u on" style="--i:9"></i><i class="dens-u on" style="--i:10"></i><i class="dens-u on" style="--i:11"></i><i class="dens-u on" style="--i:12"></i><i class="dens-u on" style="--i:13"></i><i class="dens-u on" style="--i:14"></i><i class="dens-u on" style="--i:15"></i><i class="dens-u"></i><i class="dens-u"></i>							</span>
+																	</div>
+					<p class="dens-row__total"><b>2</b><span>racks</span><span>8 servers per rack</span></p>
+				</div>
+											<div class="dens-row dens-row--muted" data-reveal style="--d:1">
+					<div class="dens-row__meta">
+						<p class="dens-row__k">Typical colocation rack</p>
+						<p class="dens-row__kw">6<small>kW per rack</small></p>
+						<span class="dens-meter" aria-hidden="true"><i style="--w:0.24"></i></span>
+													<p class="dens-row__note"><mark class="verify">A common 5 to 8 kW power budget</mark></p>
+											</div>
+					<div class="dens-row__racks" role="img" aria-label="8 racks with 2 servers each, 8 slots left empty in each">
+													<span class="dens-cab">
+								<i class="dens-u on" style="--i:0"></i><i class="dens-u on" style="--i:1"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i>							</span>
+													<span class="dens-cab">
+								<i class="dens-u on" style="--i:2"></i><i class="dens-u on" style="--i:3"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i>							</span>
+													<span class="dens-cab">
+								<i class="dens-u on" style="--i:4"></i><i class="dens-u on" style="--i:5"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i>							</span>
+													<span class="dens-cab">
+								<i class="dens-u on" style="--i:6"></i><i class="dens-u on" style="--i:7"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i>							</span>
+													<span class="dens-cab">
+								<i class="dens-u on" style="--i:8"></i><i class="dens-u on" style="--i:9"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i>							</span>
+													<span class="dens-cab">
+								<i class="dens-u on" style="--i:10"></i><i class="dens-u on" style="--i:11"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i>							</span>
+													<span class="dens-cab">
+								<i class="dens-u on" style="--i:12"></i><i class="dens-u on" style="--i:13"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i>							</span>
+													<span class="dens-cab">
+								<i class="dens-u on" style="--i:14"></i><i class="dens-u on" style="--i:15"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i><i class="dens-u"></i>							</span>
+																	</div>
+					<p class="dens-row__total"><b>8</b><span>racks</span><span>2 servers per rack</span></p>
+				</div>
+					</div>
+
+					<div class="dens__sum" data-reveal>
+									<p class="dens__ratio"><b>4×</b> fewer racks for the same cluster, with nodes close enough for short, direct cabling.</p>
+													<p class="dens__foot">Illustrative. Real counts depend on your server model, A+B power feeds and the headroom you keep. We size it with you on the first call.</p>
+							</div>
+			</div>
+</section>
+
+
+<section class="sec wp-block-amanah-story" aria-labelledby="runs-h-3">
+	<div class="wrap">
+		<div class="head head--split" data-reveal>
+			<div style="display:grid;gap:20px">
+				<h2 id="runs-h-3">What dense compute runs on.</h2>
+			</div>
+							<p>You bring the GPUs. The building brings what dense racks run out of first: power, cooling, bandwidth and a locked door.</p>
+					</div>
+					<div class="story">
+				<div class="story__media">
+																		<picture><img decoding="async" class="is-on" data-i="0" data-k="power" src="/amanah-prototype/wp-content/themes/amanah/assets/images/power.avif" width="1568" height="1041" loading="lazy" alt="Closed grey UPS and switchgear cabinets with green status displays."></picture>
+																								<picture><img decoding="async" data-i="1" data-k="cooling" src="/amanah-prototype/wp-content/themes/amanah/assets/images/cooling.avif" width="1568" height="1041" loading="lazy" alt="A chilled-water plant room with insulated pipes and a plate heat exchanger."></picture>
+																								<picture><img decoding="async" data-i="2" data-k="meet-me-room" src="/amanah-prototype/wp-content/themes/amanah/assets/images/meet-me-room.avif" width="1568" height="1041" loading="lazy" alt="Fibre patch panels with neatly dressed yellow and aqua fibre cords."></picture>
+																								<picture><img decoding="async" data-i="3" data-k="security" src="/amanah-prototype/wp-content/themes/amanah/assets/images/security.avif" width="1568" height="1041" loading="lazy" alt="A locked mesh cage door with a biometric reader glowing green."></picture>
+																<div class="cap" aria-hidden="true"><span class="story__cap">Power room</span><div class="bars"><i class="is-on"></i><i></i><i></i><i></i></div></div>
+				</div>
+				<div class="story__steps">
+											<article class="step is-on" data-i="0" data-cap="Power room">
+															<p class="k">Power</p>
+																						<span class="num">N+1<small>UPS and generator</small></span>
+														<h3>A training run outlasts a grid blip</h3>
+															<p>Every circuit runs through N+1 UPS with diesel generator failover, and TOR2 delivers 208 V three-phase power to each high-density cabinet.</p>
+																						<ul class="chips"><li>208 V three-phase</li><li>N+1 UPS</li><li>Generator failover</li></ul>
+														<canvas class="l-power" aria-hidden="true"></canvas>															<div class="mimg"><picture><img decoding="async" src="/amanah-prototype/wp-content/themes/amanah/assets/images/power.avif" width="1568" height="1041" loading="lazy" alt=""></picture></div>
+													</article>
+											<article class="step" data-i="1" data-cap="Cooling plant">
+															<p class="k">Cooling</p>
+																						<span class="num">Lake<small>Ontario</small></span>
+														<h3>Heat carried out by lake water</h3>
+															<p>Dense racks turn power into heat. The building is cooled through Enwave&#8217;s deep lake water system, drawing cold water from Lake Ontario.</p>
+																						<ul class="chips"><li>Enwave deep lake cooling</li><li>High-density ready</li></ul>
+														<canvas class="waves" aria-hidden="true"></canvas>															<div class="mimg"><picture><img decoding="async" src="/amanah-prototype/wp-content/themes/amanah/assets/images/cooling.avif" width="1568" height="1041" loading="lazy" alt=""></picture></div>
+													</article>
+											<article class="step" data-i="2" data-cap="Meet-me room">
+															<p class="k">Network</p>
+																						<span class="num">400<small>+ networks</small></span>
+														<h3>Close to your users and your data</h3>
+															<p>TorIX at 100 Gbps and 400+ networks share the building. Cross connects are provisioned from our end in 1 to 2 business days, with no cap.</p>
+																						<ul class="chips"><li>TorIX at 100 Gbps</li><li>Cloud Connect</li><li>No cross connect cap</li></ul>
+														<div class="conv"><svg class="sline l-conv" data-line="conv" aria-hidden="true"></svg><span class="conv__pt"><i></i><b class="conv__lbl">Your cluster</b></span></div>															<div class="mimg"><picture><img decoding="async" src="/amanah-prototype/wp-content/themes/amanah/assets/images/meet-me-room.avif" width="1568" height="1041" loading="lazy" alt=""></picture></div>
+													</article>
+											<article class="step" data-i="3" data-cap="Access control">
+															<p class="k">Security</p>
+																						<span class="num">SOC 2<small>Type II</small></span>
+														<h3>Expensive hardware, closely guarded</h3>
+															<p>Biometric access, staff on site around the clock, unescorted access for your team, and a SOC 2 Type II report your auditors can read.</p>
+																						<ul class="chips"><li>Biometric access</li><li>24/7 on-site staff</li><li>PIPEDA and PHIPA</li></ul>
+														<canvas class="sline l-audit2" aria-hidden="true"></canvas>															<div class="mimg"><picture><img decoding="async" src="/amanah-prototype/wp-content/themes/amanah/assets/images/security.avif" width="1568" height="1041" loading="lazy" alt=""></picture></div>
+													</article>
+									</div>
+			</div>
+							<div class="netband" data-reveal>
+				<div>
+					<h3>One cross connect from your cluster.</h3>
+											<p>A sample of the carriers, exchange and cloud on-ramps you can reach from your rack without leaving the building.</p>
+									</div>
+				<ul class="carriers">
+											<li><b>TorIX</b><span>Internet exchange</span></li>
+											<li><b>Beanfield</b><span>Carrier</span></li>
+											<li><b>Cogent</b><span>Carrier</span></li>
+											<li><b>Zayo</b><span>Carrier</span></li>
+											<li><b>NetActuate</b><span>Network</span></li>
+																<li class="more"><b>400+</b><span>Networks in the building</span></li>
+									</ul>
+			</div>
+			</div>
+</section>
+
+
+<section class="sec paper hd-journey wp-block-amanah-journey" aria-labelledby="j-h-4">
+	<div class="wrap">
+		<div class="head" data-reveal>
+			<h2 id="j-h-4">From sizing call to a live cluster.</h2>
+		</div>
+					<ol class="journey">
+									<li data-reveal><p class="t">First call</p><h3>Sizing call</h3><p>Tell us the server model, GPU count and target draw. We map it to cabinets and circuits.</p></li>
+									<li data-reveal style="--d:1"><p class="t">1 business day</p><h3>Power and cooling plan</h3><p>A written quote with kW per rack and the circuits behind it, priced to your load.</p></li>
+									<li data-reveal style="--d:2"><p class="t">On delivery</p><h3>Rack and stack</h3><p>Rack it yourself, or have remote hands build, rack and cable it from $100 CAD an hour.</p></li>
+									<li data-reveal style="--d:3"><p class="t">Go live</p><h3>Burn-in and go live</h3><p><mark class="verify">Run a full-load burn-in on our power</mark>, then move traffic. Cross connects land in 1 to 2 business days.</p></li>
+							</ol>
+			</div>
+</section>
+
+
+
+<section class="wp-block-group sec hd-faq is-layout-flow wp-block-group-is-layout-flow" id="faq">
+<div class="wp-block-group wrap hd-faq__in is-layout-flow wp-block-group-is-layout-flow">
+<div class="wp-block-group head hd-faq__head reveal is-layout-flow wp-block-group-is-layout-flow">
+<p class="tag wp-block-paragraph">GPU questions</p>
+
+
+
+<h2 class="wp-block-heading">What engineers ask first.</h2>
+
+
+
+<p class="wp-block-paragraph">Something else on your list? Bring it to the sizing call, or ring the team on <a href="tel:+14166039825">+1 416 603 9825</a>.</p>
+</div>
+
+
+
+<div class="wp-block-group hd-faq__list reveal reveal-d1 is-layout-flow wp-block-group-is-layout-flow">
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>Do you support liquid cooling?</summary>
+<p class="wp-block-paragraph">TOR2 cabinets run up to 25 kW, with the building cooled through Enwave&#8217;s deep lake water system. <mark class="verify">Rear-door heat exchangers and direct-to-chip loops are scoped case by case</mark>, so bring your hardware spec to the sizing call.</p>
+</details>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>How is power billed?</summary>
+<p class="wp-block-paragraph">Your written quote prices power per cabinet on 208 V three-phase circuits, sized to the draw you give us. <mark class="verify">You commit to a kW figure per rack and pay a flat monthly rate for it.</mark></p>
+</details>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>Can we ship our servers to you?</summary>
+<p class="wp-block-paragraph">Yes. Ship to 151 Front Street West <mark class="verify">and we receive, log and hold your hardware until the rack is ready</mark>. Rack it yourself with unescorted access, or have us build and rack it for you.</p>
+</details>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>What can remote hands do at 2 a.m.?</summary>
+<p class="wp-block-paragraph">Staff are on site 24/7, and remote hands start at $100 CAD an hour: <mark class="verify">reseats, drive and DIMM swaps, recabling, console checks and photos of what we see</mark>.</p>
+</details>
+
+
+
+<details class="wp-block-details is-layout-flow wp-block-details-is-layout-flow"><summary>Is the bandwidth really unmetered?</summary>
+<p class="wp-block-paragraph">Yes. 100 Gbps ports are unmetered, so dataset pulls and inference traffic carry no overage bill. <mark class="verify">Port count per cabinet is confirmed in your quote.</mark> Carriers and TorIX are a cross connect away, with no cap.</p>
+</details>
+</div>
+</div>
+</section>
+
+
+<section class="finale finale--type wp-block-amanah-finale" aria-labelledby="fin-h-5">
+<div class="fin__img" aria-hidden="true"><div class="fin__pan"><picture><img src="/amanah-prototype/wp-content/themes/amanah/assets/images/aerial2.avif" width="1780" height="1000" loading="lazy" decoding="async" alt=""></picture><span class="fin__pin"><i></i><b>151 Front St W</b></span></div></div>
+<div class="wrap">
+<h2 id="fin-h-5" data-reveal>GPU racks, quoted in a day.</h2>
+<div class="finale__row" data-reveal style="--d:1">
+<div style="display:grid;gap:24px">
+<p>Send the server model, GPU count and target kW per rack. You get a written TOR2 plan within one business day, or come and walk the hall first.</p><div style="display:flex;flex-wrap:wrap;gap:12px">
+<a class="btn btn--red" href="/amanah-prototype/contact/?plan=gpu#quote">Start a GPU quote <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a class="btn btn--ghost" href="/amanah-prototype/contact/#tour">Book a TOR2 tour</a>
+</div>
+</div>
+<div class="pm"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg><p><b>Price match guarantee.</b> Bring a comparable colocation quote for 151 Front and we will beat it by 10%.</p></div>
+</div>
+</div>
+</section>
+</div></main>
+
+
+<div class="site-footer-part wp-block-template-part"><footer class="ftr">
+	<div class="wrap">
+		<div class="ftr__cols">
+			<div>
+				<p class="fh">Talk to sales</p>
+				<ul>
+					<li><a class="tel" href="tel:+14166039825">+1 416 603 9825</a></li>
+					<li><a href="/amanah-prototype/contact/#quote">Get a quote</a></li>
+					<li><a href="/amanah-prototype/contact/#tour">Book a tour</a></li>
+				</ul>
+			</div>
+							<div>
+					<p class="fh">Colocation</p>
+					<ul>
+													<li><a href="/amanah-prototype/colocation/#plans">All plans</a></li>
+													<li><a href="/amanah-prototype/colocation/?plan=shared#plans">Shared rack</a></li>
+													<li><a href="/amanah-prototype/colocation/?plan=full#plans">Full rack</a></li>
+													<li><a href="/amanah-prototype/colocation/?plan=suite#plans">Private cage</a></li>
+													<li><a href="/amanah-prototype/high-density/">AI and GPU</a></li>
+											</ul>
+				</div>
+							<div>
+					<p class="fh">More services</p>
+					<ul>
+													<li><a href="/amanah-prototype/services/#dedicated-servers">Dedicated servers</a></li>
+													<li><a href="/amanah-prototype/services/#cloud-connect">Cloud Connect</a></li>
+													<li><a href="/amanah-prototype/services/#a-la-carte">À La Carte</a></li>
+													<li><a href="/amanah-prototype/services/#cross-connects">Cross connects</a></li>
+													<li><a href="/amanah-prototype/services/#remote-hands">Remote hands</a></li>
+											</ul>
+				</div>
+						<div>
+				<p class="fh">Data centre</p>
+				<address>151 Front Street West, Suite 341<br>Toronto, ON M5J 2N1</address>
+				<p class="fh" style="margin-top:32px">Head office</p>
+				<address>123 Front Street West, Suite 1206<br>Toronto, ON M5J 2M2</address>
+			</div>
+		</div>
+		<div class="ftr__big" aria-hidden="true">151 Front</div>
+		<div class="ftr__legal">
+			<span>&copy; 2026 Amanah Tech Inc.</span>
+							<a href="/amanah-prototype/legal/#acceptable-use">Acceptable use</a>
+							<a href="/amanah-prototype/legal/#sla">Service level agreement</a>
+							<a href="/amanah-prototype/legal/#privacy">Privacy</a>
+							<a href="/amanah-prototype/data-centre/">Data centre</a>
+							<a href="/amanah-prototype/about/">About</a>
+							<a href="/amanah-prototype/news/">News</a>
+							<a href="/amanah-prototype/about/#careers">Careers</a>
+					</div>
+	</div>
+</footer>
+
+</div>
+</div>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/amanah/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script data-wp-strategy="defer" defer id="amanah-lines-js" src="/amanah-prototype/wp-content/themes/amanah/assets/js/lines.js?ver=1793050031"></script>
+<script data-wp-strategy="defer" defer id="amanah-site-js" src="/amanah-prototype/wp-content/themes/amanah/assets/js/site.js?ver=1793049269"></script>
+</body>
+</html>

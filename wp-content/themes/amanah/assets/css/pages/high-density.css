@@ -1,0 +1,63 @@
+/* AI and GPU (TOR2) page: /high-density/. Sections not covered by site.css components. */
+
+/* ── Workloads (paper): three cards with a load-profile sparkline ── */
+.hd-head { display: grid; gap: 20px; }
+.hd-loads .head { margin-bottom: clamp(40px, 3vw + 24px, 80px); }
+.hd-loads__grid { display: grid; gap: 16px; }
+.hd-load { display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: var(--r-lg); background: var(--paper2); border: 1px solid var(--paper3); transition: border-color 240ms var(--ease), transform 320ms var(--ease-out); }
+.hd-load:hover { border-color: var(--ink3); }
+.hd-load__fig { margin: 0 0 12px; padding: 16px 16px 12px; border-radius: var(--r-md); background: var(--paper); border: 1px solid var(--paper3); }
+.hd-load__fig svg { display: block; width: 100%; height: 72px; overflow: visible; }
+.hd-load__fig path { fill: none; stroke: var(--pred); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; transition: stroke-dashoffset 1400ms var(--ease-out) 250ms; }
+.hd-load__fig .lim { stroke: var(--ink3); stroke-width: 1; stroke-dasharray: 4 4; vector-effect: non-scaling-stroke; }
+.hd-load__fig figcaption { display: flex; justify-content: space-between; margin-top: 10px; font: 500 .6875rem/1.3 var(--fm); letter-spacing: .1em; text-transform: uppercase; color: var(--ink3); }
+.js .hd-load:not(.is-in) .hd-load__fig path { stroke-dashoffset: 1; }
+.hd-load__k { font: 500 .75rem/1.5 var(--fm); letter-spacing: .14em; text-transform: uppercase; color: var(--pred); }
+.hd-load h3 { font-size: clamp(1.5rem, 1.2rem + .9vw, 2rem); line-height: 1.1; letter-spacing: -.025em; }
+.hd-load > p:not([class]) { color: var(--ink2); max-width: 40ch; }
+.hd-load__lbl { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--paper3); font: 500 .6875rem/1.4 var(--fm); letter-spacing: .14em; text-transform: uppercase; color: var(--ink3); }
+.hd-fit { display: grid; gap: 10px; list-style: none; margin: 0; padding: 0; }
+.hd-fit li { position: relative; padding-left: 28px; font-size: .9375rem; line-height: 1.45; color: var(--ink); }
+.hd-fit li::before {
+	content: ""; position: absolute; left: 0; top: 2px; width: 18px; height: 18px; background: var(--pred);
+	-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / contain no-repeat;
+	        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* ── Journey on paper (amanah/journey with className "paper") ── */
+.paper .journey li { border-top-color: var(--paper3); }
+.paper .journey li::before { background: var(--paper); border-color: var(--ink3); color: var(--ink); }
+.paper .journey li:last-child::before { background: var(--red); border-color: var(--red); color: var(--paper); }
+.paper .journey .t { color: var(--plake); }
+.paper .journey p { color: var(--ink2); }
+.paper .journey::before { background: var(--paper3); }
+
+/* ── FAQ (dark): heading beside the questions on desktop ── */
+.hd-faq { border-top: 1px solid var(--line); }
+.hd-faq__in { display: grid; gap: 8px; }
+.hd-faq__head { margin-bottom: 32px; }
+.hd-faq__head a { color: var(--tx); text-underline-offset: 3px; text-decoration-color: var(--line2); white-space: nowrap; }
+.hd-faq__head a:hover { text-decoration-color: currentColor; }
+.hd-faq__list { border-top: 1px solid var(--line); }
+.hd-faq .wp-block-details { margin: 0; border-bottom: 1px solid var(--line); }
+.hd-faq summary { position: relative; display: block; list-style: none; cursor: pointer; padding: 24px 56px 24px 0; font: 600 clamp(1.125rem, 1rem + .5vw, 1.375rem)/1.3 var(--fd); letter-spacing: -.015em; color: var(--tx); transition: color 140ms var(--ease); }
+.hd-faq summary::-webkit-details-marker { display: none; }
+.hd-faq summary::after { content: ""; position: absolute; right: 4px; top: 50%; width: 36px; height: 36px; margin-top: -18px; border-radius: 50%; border: 1px solid var(--line2); background: linear-gradient(var(--tx), var(--tx)) center / 12px 1.5px no-repeat, linear-gradient(var(--tx), var(--tx)) center / 1.5px 12px no-repeat; transition: transform var(--t-mid) var(--ease-out), border-color 140ms var(--ease); }
+.hd-faq summary:hover::after { border-color: var(--tx3); }
+.hd-faq details[open] > summary::after { transform: rotate(45deg); border-color: var(--red); }
+.hd-faq summary:focus-visible { outline-offset: 4px; }
+.hd-faq details > p { padding: 0 56px 28px 0; color: var(--tx2); max-width: 62ch; }
+
+@media (min-width: 900px) {
+	.hd-loads__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+	.hd-load { padding: 32px; }
+}
+@media (min-width: 1000px) {
+	.hd-faq__in { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 72px; align-items: start; }
+	.hd-faq__head { position: sticky; top: 120px; margin-bottom: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+	.hd-load__fig path { transition: none; }
+	.js .hd-load:not(.is-in) .hd-load__fig path { stroke-dashoffset: 0; }
+	.hd-faq summary::after { transition: none; }
+}

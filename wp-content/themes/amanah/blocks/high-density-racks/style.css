@@ -1,0 +1,58 @@
+/* amanah/high-density-racks: the same cluster drawn as cabinets at two power budgets (paper surface). */
+.dens__legend { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; list-style: none; margin: 0 0 20px; padding: 0; font: 500 .8125rem/1.4 var(--fm); color: var(--ink2); }
+.dens__legend li { display: inline-flex; align-items: center; gap: 10px; }
+.dens__legend .dens-u { width: 28px; flex: none; --tone: var(--ink); }
+.dens__count { margin-left: auto; color: var(--ink3); }
+
+.dens__rows { display: grid; gap: 16px; }
+.dens-row { --tone: var(--ink3); display: grid; gap: 28px; padding: 24px; border-radius: var(--r-lg); background: var(--paper2); border: 1px solid var(--paper3); }
+.dens-row--red { --tone: var(--pred); background: var(--paper); border-color: rgba(203,43,25,.28); box-shadow: 0 24px 60px -40px rgba(39,32,29,.35); }
+
+.dens-row__k { font: 500 .75rem/1.5 var(--fm); letter-spacing: .14em; text-transform: uppercase; color: var(--ink2); }
+.dens-row--red .dens-row__k { color: var(--pred); }
+.dens-row__kw { margin-top: 12px; font: 500 clamp(2.75rem, 2rem + 2.4vw, 4.25rem)/.9 var(--fm); letter-spacing: -.045em; color: var(--ink); white-space: nowrap; }
+.dens-row__kw small { font-size: .3em; letter-spacing: 0; margin-left: .5em; color: var(--ink3); }
+.dens-meter { display: block; margin-top: 18px; height: 4px; border-radius: 2px; background: var(--paper3); overflow: hidden; }
+.dens-meter i { display: block; height: 100%; background: var(--tone); transform-origin: left; transform: scaleX(var(--w, 1)); transition: transform 900ms var(--ease-out) 150ms; }
+.dens-row__note { margin-top: 14px; font-size: .875rem; line-height: 1.5; color: var(--ink2); max-width: 32ch; }
+
+/* Cabinets: slots stack from the bottom, filled ones in the row's tone. */
+.dens-row__racks { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 8px; }
+.dens-cab { display: flex; flex-direction: column-reverse; gap: 3px; width: 28px; padding: 5px 4px 8px; border-radius: 5px; border: 1.5px solid var(--ink3); border-top-width: 4px; background: var(--paper); }
+.dens-u { position: relative; display: block; height: 8px; border-radius: 2px; background: var(--paper3); overflow: hidden; }
+.dens-u.on::after { content: ""; position: absolute; inset: 0; background: var(--tone); transform-origin: left; transition: transform 360ms var(--ease-out); transition-delay: calc(var(--i, 0) * 45ms + 250ms); }
+.dens-more { align-self: center; font: 500 .875rem/1 var(--fm); color: var(--ink2); }
+
+.dens-row__total { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.dens-row__total b { font: 600 clamp(2.5rem, 1.8rem + 2.4vw, 4rem)/1 var(--fd); letter-spacing: -.035em; color: var(--ink); }
+.dens-row--red .dens-row__total b { color: var(--pred); }
+.dens-row__total span { font: 500 .75rem/1.5 var(--fm); letter-spacing: .08em; text-transform: uppercase; color: var(--ink2); }
+.dens-row__total span:last-child { flex-basis: 100%; color: var(--ink3); }
+
+.dens__sum { display: grid; gap: 16px; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--paper3); }
+.dens__ratio { font: 600 clamp(1.5rem, 1.1rem + 1.4vw, 2.5rem)/1.1 var(--fd); letter-spacing: -.025em; max-width: 26ch; }
+.dens__ratio b { font-weight: 600; color: var(--pred); }
+.dens__foot { font-size: .875rem; line-height: 1.55; color: var(--ink2); max-width: 52ch; }
+
+/* Before the row scrolls in: meter empty, slots dark. site.js adds .is-in. */
+.js .dens-row:not(.is-in) .dens-meter i { transform: scaleX(0); }
+.js .dens-row:not(.is-in) .dens-u.on::after { transform: scaleX(0); }
+
+@media (min-width: 600px) {
+	.dens-row__racks { gap: 10px; }
+	.dens-cab { width: 36px; padding: 6px 5px 10px; }
+	.dens-u { height: 10px; }
+}
+@media (min-width: 1000px) {
+	.dens-row { grid-template-columns: minmax(240px, .9fr) minmax(0, 2.1fr) minmax(150px, .6fr); align-items: center; gap: 40px; padding: 36px 40px; }
+	.dens-row__racks { gap: 12px; }
+	.dens-cab { width: 46px; padding: 7px 6px 12px; }
+	.dens-u { height: 11px; }
+	.dens-row__total { display: grid; gap: 4px; }
+	.dens__sum { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); align-items: end; gap: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+	.dens-meter i, .dens-u.on::after { transition: none; }
+	.js .dens-row:not(.is-in) .dens-meter i { transform: scaleX(var(--w, 1)); }
+	.js .dens-row:not(.is-in) .dens-u.on::after { transform: none; }
+}

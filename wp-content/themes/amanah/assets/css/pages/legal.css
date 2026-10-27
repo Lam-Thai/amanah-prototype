@@ -1,0 +1,42 @@
+/* Legal (/legal/). A calm reading page: paper surface, ~68ch measure, in-page nav. */
+
+.legal__grid { display: grid; gap: 48px; }
+.legal__body { display: grid; gap: 0; max-width: 68ch; }
+
+/* In-page nav */
+.legal-toc { align-self: start; }
+.legal-toc__h { font: 500 .75rem/1.5 var(--fm); letter-spacing: .14em; text-transform: uppercase; color: var(--ink2); margin: 0 0 12px; }
+.legal-toc ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--paper3); }
+.legal-toc li { border-bottom: 1px solid var(--paper3); }
+.legal-toc a { display: flex; align-items: center; gap: 16px; min-height: 52px; color: var(--ink); text-decoration: none; font-weight: 500; transition: color 140ms var(--ease); }
+.legal-toc a span { font: 500 .75rem/1 var(--fm); color: var(--ink3); transition: color 140ms var(--ease); }
+.legal-toc a:hover, .legal-toc a:hover span { color: var(--pred); }
+
+/* Policy sections */
+.legal-sec { display: grid; gap: 20px; padding-block: 56px; border-top: 1px solid var(--paper3); scroll-margin-top: 96px; }
+.legal-sec:first-child { padding-top: 0; border-top: 0; }
+.legal-sec h2 { font-size: clamp(1.875rem, 1.3rem + 1.8vw, 2.75rem); line-height: 1.05; letter-spacing: -.03em; color: var(--ink); }
+.legal-sec__sum { font-size: clamp(1.0625rem, 1rem + .3vw, 1.25rem); line-height: 1.6; color: var(--ink); }
+.legal-sec h3 { margin-top: 8px; font: 500 .75rem/1.5 var(--fm); letter-spacing: .14em; text-transform: uppercase; color: var(--ink2); }
+.legal-list { display: grid; gap: 10px; list-style: none; margin: 0; padding: 0; }
+.legal-list li { position: relative; padding-left: 28px; color: var(--ink2); line-height: 1.6; }
+.legal-list li::before { content: ""; position: absolute; left: 0; top: .8em; width: 14px; height: 1px; background: var(--ink3); }
+
+/* Where the client's full text will go: visible on purpose, with faint "lines" of text to come. */
+.legal-note { margin-top: 8px; padding: 20px 24px 24px; border: 1px dashed var(--ink3); border-radius: var(--r-md); background: var(--paper2); font: 500 .875rem/1.5 var(--fm); color: var(--ink2); }
+.legal-note::after { content: ""; display: block; height: 58px; margin-top: 16px; background: repeating-linear-gradient(180deg, var(--paper3) 0 8px, transparent 8px 20px); -webkit-mask-image: linear-gradient(90deg, #000 70%, transparent); mask-image: linear-gradient(90deg, #000 70%, transparent); }
+
+/* Closing next step */
+.legal-ask { display: grid; gap: 16px; margin-top: 16px; padding: 32px; border-radius: var(--r-lg); background: var(--paper2); border: 1px solid var(--paper3); }
+.legal-ask h3 { font-size: clamp(1.375rem, 1.15rem + .6vw, 1.75rem); line-height: 1.1; letter-spacing: -.02em; color: var(--ink); }
+.legal-ask p { color: var(--ink2); max-width: 48ch; }
+.legal-ask .wp-block-buttons { margin-top: 8px; }
+
+@media (min-width: 1000px) {
+	.legal__grid { grid-template-columns: minmax(200px, 240px) minmax(0, 68ch); gap: clamp(56px, 7vw, 128px); }
+	.legal-toc { position: sticky; top: 112px; }
+	body.admin-bar .legal-toc { top: calc(112px + var(--wp-admin--admin-bar--height, 32px)); }
+}
+@media (max-width: 599px) {
+	.legal-note, .legal-ask { padding-inline: 20px; }
+}
