@@ -44,7 +44,13 @@ All commands run in a terminal in this project folder.
 
 ## Updating after changes
 
-Repeat steps 2–4. Commit and push your code to `main` so the admin link picks up the latest theme too.
+Repeat steps 2–4. Then commit and push your code so the admin link picks up the latest theme too:
+
+```bash
+git push public main
+```
+
+(`public` is the git remote for `Lam-Thai/amanah-prototype`. Your older `origin` remote, `Lam-Thai/Wordpress-prototype`, is left untouched. `npm run deploy` publishes to the remote named in `package.json` → `config.deployRemote`.)
 
 ## Good to know
 

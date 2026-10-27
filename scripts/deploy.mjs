@@ -13,11 +13,13 @@ if (!fs.existsSync(path.join(DIST, 'index.html'))) {
   process.exit(1);
 }
 
+// Which git remote hosts the public site: package.json → config.deployRemote (default "origin").
+const remoteName = JSON.parse(fs.readFileSync('package.json', 'utf8')).config?.deployRemote || 'origin';
 let remote;
 try {
-  remote = run('git', ['remote', 'get-url', 'origin']);
+  remote = run('git', ['remote', 'get-url', remoteName]);
 } catch {
-  console.error('This repo has no GitHub remote yet. Create one first (see docs/HOSTING.md).');
+  console.error(`No git remote named "${remoteName}". Create the GitHub repo first (see docs/HOSTING.md).`);
   process.exit(1);
 }
 const repo = remote.replace(/\.git$/, '').match(/github\.com[:/](.+\/.+)$/)?.[1];
@@ -41,7 +43,12 @@ try {
   run('gh', ['api', '-X', 'POST', `repos/${repo}/pages`, '-f', 'source[branch]=gh-pages', '-f', 'source[path]=/']);
   console.log('GitHub Pages enabled.');
 } catch (e) {
-  if (!/409|already/i.test(String(e.stderr))) console.warn('Could not enable Pages automatically:', String(e.stderr).trim());
+  // GitHub often enables Pages by itself when a gh-pages branch first arrives; only warn if it really is off.
+  let source = '';
+  try {
+    source = run('gh', ['api', `repos/${repo}/pages`, '--jq', '.source.branch']);
+  } catch {}
+  if (source !== 'gh-pages') console.warn('Could not enable Pages automatically; turn it on in the repo: Settings → Pages → Branch: gh-pages.', String(e.stderr || '').trim());
 }
 const [owner, name] = repo.split('/');
 console.log(`Done. In about a minute: https://${owner.toLowerCase()}.github.io/${name}/`);

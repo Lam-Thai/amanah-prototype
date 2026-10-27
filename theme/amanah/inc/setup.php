@@ -55,6 +55,9 @@ add_action(
 	'wp_head',
 	function () {
 		echo '<meta name="theme-color" content="#171210">' . "\n";
+		if ( ! has_site_icon() ) {
+			printf( '<link rel="icon" href="%s" type="image/svg+xml">' . "\n", esc_url( amanah_asset( 'images/favicon.svg' ) ) );
+		}
 
 		// Meta description: the page/post excerpt (set in each seed file's header), else the tagline.
 		$desc = '';
