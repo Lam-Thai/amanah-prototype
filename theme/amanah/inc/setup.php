@@ -72,6 +72,39 @@ add_action(
 	1
 );
 
+/*
+ * Client demo link (blueprint.public.json defines AMANAH_DEMO): WordPress's front-end toolbar
+ * depends on a separate stylesheet that Playground occasionally fails to load, leaving a raw list
+ * over the page. Replace it with a small "Edit this page" pill styled by site.css.
+ */
+if ( defined( 'AMANAH_DEMO' ) && AMANAH_DEMO ) {
+	add_filter( 'show_admin_bar', '__return_false' );
+
+	add_action(
+		'wp_footer',
+		function () {
+			if ( ! current_user_can( 'edit_pages' ) ) {
+				return;
+			}
+			$id = 0;
+			if ( is_singular() ) {
+				$id = get_queried_object_id();
+			} elseif ( is_home() ) {
+				$id = (int) get_option( 'page_for_posts' );
+			}
+			$edit = $id ? get_edit_post_link( $id ) : admin_url( 'site-editor.php' );
+			?>
+			<nav class="demo-edit" aria-label="<?php esc_attr_e( 'WordPress demo', 'amanah' ); ?>">
+				<span class="demo-edit__k"><?php esc_html_e( 'WordPress demo', 'amanah' ); ?></span>
+				<a class="demo-edit__go" href="<?php echo esc_url( $edit ); ?>"><?php echo esc_html( $id ? __( 'Edit this page', 'amanah' ) : __( 'Edit site', 'amanah' ) ); ?></a>
+				<a href="<?php echo esc_url( admin_url( 'edit.php?post_type=page' ) ); ?>"><?php esc_html_e( 'All pages', 'amanah' ); ?></a>
+				<a href="<?php echo esc_url( admin_url() ); ?>"><?php esc_html_e( 'Dashboard', 'amanah' ); ?></a>
+			</nav>
+			<?php
+		}
+	);
+}
+
 // A linked featured image repeats the title link next to it: hide it from keyboard and screen readers.
 add_filter(
 	'render_block_core/post-featured-image',

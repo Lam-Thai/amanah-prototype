@@ -7,8 +7,17 @@
 	},
 	"landingPage": "/",
 	"login": true,
-	"preferredVersions": { "php": "8.3", "wp": "latest" },
+	"preferredVersions": {
+		"php": "8.3",
+		"wp": "latest"
+	},
 	"steps": [
+		{
+			"step": "defineWpConfigConsts",
+			"consts": {
+				"AMANAH_DEMO": true
+			}
+		},
 		{
 			"step": "installTheme",
 			"themeData": {
@@ -17,8 +26,14 @@
 				"ref": "main",
 				"path": "theme/amanah"
 			},
-			"options": { "activate": true }
+			"options": {
+				"activate": true,
+				"targetFolderName": "amanah"
+			}
 		},
-		{ "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; amanah_seed_run();" }
+		{
+			"step": "runPHP",
+			"code": "<?php require '/wordpress/wp-load.php'; amanah_seed_run();"
+		}
 	]
 }

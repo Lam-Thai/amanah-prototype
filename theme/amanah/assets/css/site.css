@@ -551,3 +551,12 @@ mark.verify { background: rgba(226,163,60,.18); color: inherit; border-bottom: 1
 .nav a[aria-current="page"] { color: var(--tx); }
 /* Current page in the header: a clear underline (the red/purple dots are the sample's emphasis, not a "you are here"). */
 .nav a[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--red-mark); border-radius: 0; }
+
+/* Demo-link "Edit this page" pill (inc/setup.php, AMANAH_DEMO only). */
+.demo-edit { position: fixed; z-index: 900; left: 50%; bottom: 16px; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; padding: 6px; border: 1px solid var(--line2); border-radius: 999px; background: rgba(23,18,16,.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 12px 32px rgba(0,0,0,.35); font: 500 .8125rem/1 var(--ft); white-space: nowrap; }
+.demo-edit__k { padding: 0 10px 0 12px; font: 500 .6875rem/1 var(--fm); letter-spacing: .12em; text-transform: uppercase; color: var(--tx3); }
+.demo-edit a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border-radius: 999px; color: var(--tx2); text-decoration: none; }
+.demo-edit a:hover { color: var(--tx); background: rgba(251,247,246,.08); }
+.demo-edit a.demo-edit__go { background: var(--red); color: var(--paper); }
+.demo-edit a.demo-edit__go:hover { background: var(--red-h); }
+@media (max-width: 599px) { .demo-edit__k, .demo-edit a:last-child { display: none; } }
